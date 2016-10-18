@@ -1,5 +1,5 @@
 var scene = 0;
-var pic = "0.png";
+var pic = "pics/0.png";
 			
 //Begin actual game content
 
@@ -10,6 +10,7 @@ function changeScene(choice)
 	{
 		if (choice)
 		{
+			hideContent();
 			scene = 1;
 			message = "Birds are chirping. Light streams on your face. You begin to wake up.";
 			changeValues1(' Where am I? ');
