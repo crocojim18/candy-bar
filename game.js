@@ -10,27 +10,28 @@ function changeScene(choice)
 	{
 		if (choice)
 		{
-			hideContent();
 			scene = 1;
 			message = "Birds are chirping. Light streams on your face. You begin to wake up.";
 			changeValues1(' Where am I? ');
-			pic = "1.png";
+			pic = "pics/1.gif";
 		}
 	}
 	else if (scene == 1)
 	{
 		if (choice)
 		{
+
 			scene = 2;
-			message = "Oh.</br>Well, look at that. It looks like you're dead. That's your name on a gravestone.";
+			message = "Oh.</br>Well, look at that. It looks like you're dead. That's definitely your gravestone.";
 			changeValues1(' Bummer. ');
-			pic = "2.png";
+			pic = "pics/2.png";
 		}
 	}
 	else if (scene == 2)
 	{
 		if (choice)
 		{
+			hideContent();
 			scene = 3;
 			message = "You try and recollect how you died.";
 			changeValues1(' Ahh yes, it was dangerous! ');
