@@ -31,14 +31,13 @@ function changeScene(choice)
 	{
 		if (choice)
 		{
-			hideContent();
 			scene = 3;
 			message = "You try and recollect how you died.";
 			changeValues1(' Ahh yes, it was dangerous! ');
 			show2(); show3();
 			changeValues2(' Ahh yes, it was exciting! ');
 			changeValues3(' Ahh yes, it was very monotonous. ');
-			pic = "3.png";
+			pic = "pics/3.png";
 		}
 	}
 	else if (scene == 3)
@@ -49,7 +48,7 @@ function changeScene(choice)
 			scene = 4;
 			message = "You remember how you died. You were balancing two sharks on their noses while tight-roping over a canyon.</br>You thought you could counteract it by tight-roping over Life Valley, Death Valley's evil twin cousin, but alas, that tanked bigtime.";
 			changeValues1(' It was worth a shot! ');
-			pic = "4.png";
+			pic = "pics/4.png";
 		}
 		else if (choice==2)
 		{
@@ -76,12 +75,12 @@ function changeScene(choice)
 			show2(); show3();
 			changeValues2(' Try and whistle a haunting tune ');
 			changeValues3(' Look at your iPhone ');
-			pic = "7.png";
+			pic = "pics/2.png";
 		}
 	}
-	else if (scene == 7)
+	else if (scene == 7||(scene==20&&choice==5))
 	{
-		hide2(); hide3();
+		hide2(); hide3();hide4();hide5();
 		if (choice==1)
 		{
 			scene = 8;
@@ -96,10 +95,10 @@ function changeScene(choice)
 			changeValues1(' It sounded better in my head. ');
 			pic = "9.png";
 		}
-		else if (choice==3)
+		else if (choice==3||choice==5)
 		{
 			scene = 10;
-			message = "You idly look at your iPhone for some suggestion of what to do, but you forget your password.";
+			message = "You idly look at your iPod for some suggestion of what to do, but you forget your password.";
 			changeValues1(' Wait a minute, I noticed something! ');
 			show2();
 			changeValues2(' Try and figure out the password. ');
@@ -192,16 +191,29 @@ function changeScene(choice)
 	}
 	else if(scene==16)
 	{
-		hideContent();
 		if(choice)
 		{
 			scene = 18;
-			hide2(); hide3();hide1();
-			message = "THE ADVENTURE CONTINUES";
+			hide2(); hide3();
+			message = "\"Alright, now where can a ghost find a single candy bar on Halloween?\", you think aloud. \"If only <i>someone</i> could get a candy bar for me. Man, how that'd be swell.\"</br>You look around.</br></br>This is going to be harder than you thought.";
 			pic = "18.png";
+			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene == 19)
+	else if(scene==18)
+	{
+		if(choice)
+		{
+			scene = 21;
+			show2(); show3();
+			message = "You suppose that you have a couple of choices when it comes to getting a taste of Sir Goodtaste. You try and weigh the choices.";
+			changeValues1(' I could go trick-or-treating ');
+			changeValues2(' I could hunt for one in the wild ');
+			changeValues3(' I could buy one in a store ');
+			pic = "21.png";
+		}
+	}
+	else if(scene == 19||scene==22)
 	{
 		if(choice)
 		{
@@ -211,16 +223,30 @@ function changeScene(choice)
 				scene = 20;
 				message = "Huh. It wasn't that before. Weird.</br></br>Anyway, what songs do you want to listen to?";
 				hideTextInput();
-				show2(); show3(); show4();
-				changeValues1(' "The Sun is Dying and I am Killing It" by Queen of the Scorched Earth ');
+				show2(); show3(); show4();show5();
+				//changeValues1(' "The Sun is Dying and I am Killing It" by Queen of the Scorched Earth ');
+				changeValues1(' Dead, Rotten Bodies ');
 				changeValues2(' "Look Through Me (You Can Do That Now)" by Albert Glass ');
 				changeValues3(' "Sometime is Anytime with All Time" by The Clocknuts ');
 				changeValues4(' "Theme of the Haunted" by Craig A. Peters ');
+				changeValues5(' I\'m done listening to music ');
 				pic = "20.png";
 			}
+		}
+	}
+	else if(scene==20)
+	{
+		if(choice==1)
+		{
+			scene = 22;
+			message = "<iframe style=\"border: 0; width: 100%; height: 42px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=4077816325/size=small/bgcol=ffffff/linkcol=0687f5/track=1622346461/transparent=true/\" seamless><a href=\"http://bipolemoment.bandcamp.com/album/chairpocalypse-never-say-never-say-never-official-soundtrack\">Chairpocalypse: Never Say Never Say Never (Official Soundtrack) by Bipole Moment</a></iframe></br></br>This is a pretty good song. Haunting. Ethereal. Not something you'd listen to at a concert, but pretty good.";
+			hide2(); hide3(); hide4();hide5();
+			changeValues1(' Go back to songs ');
+			pic = "pics/22.png";
 		}
 	}
 	
 	document.getElementById("scenetext").innerHTML = message;
 	document.getElementById("sceneimg").src = pic;
+
 }

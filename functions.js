@@ -20,6 +20,11 @@ function changeValues4(message)
 	document.getElementById("choice4").value = message;
 }
 
+function changeValues5(message)
+{
+	document.getElementById("choice5").value = message;
+}
+
 //These functions hide the buttons
 
 function hide1()
@@ -42,6 +47,11 @@ function hide4()
 	document.getElementById("choice4").style.display="none";
 }
 
+function hide5()
+{
+	document.getElementById("choice5").style.display="none";
+}
+
 //These functions show the buttons
 
 function show1()
@@ -62,6 +72,11 @@ function show3()
 function show4()
 {
 	document.getElementById("choice4").style.display="block";
+}
+
+function show5()
+{
+	document.getElementById("choice5").style.display="block";
 }
 
 //These functions change color, such as background and text color
