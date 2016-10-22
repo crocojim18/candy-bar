@@ -54,9 +54,9 @@ function changeScene(choice)
 		else if (choice==2)
 		{
 			scene = 5;
-			message = "You remember in your last moments you were waterskiing at 7% the speed of light. However, the boat pulling you crashed into a rock, and you fell deep into the water. An octopus offered you a danish, which you accepted, but it was poisoned and you died.";
-			changeValues1(' It still tasted good though! ');
-			pic = "5.png";
+			message = "You remember in your last moments you were waterskiing at 7% the speed of light. However, the boat pulling you crashed into a rock, and you fell deep into the water. An octopus offered you a danish, which you accepted, but it was poisoned and you died. It was a good danish.</br></br>But you learned your lesson that day. That's the last time you waterski while it's cloudy.";
+			changeValues1(' Lesson learned. ');
+			pic = "pics/5.png";
 		}
 		else if (choice==3)
 		{
@@ -202,7 +202,7 @@ function changeScene(choice)
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18)
+	else if(scene==18||(scene>=26&&scene<=28&&choice==2))
 	{
 		if(choice)
 		{
@@ -277,31 +277,28 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 26;
-			show2(); show3();
-			message = "Trick-or-treating. An anceint, sacred tradition where children wander the street alone, ";
-			changeValues1(' I could go trick-or-treating ');
-			changeValues2(' I could hunt for one in the wild ');
-			changeValues3(' I could buy one in a store ');
+			show2(); hide3();
+			message = "Trick-or-treating. An ancient, sacred tradition where children wander the street alone, dressed in disguises, and beg the sky for candy. You remember when you would go trick-or-treating.</br>You used to have a neighbor, Mr. Simon. Every Halloween, you would break down his door and holler the Halloween Holler.</br></br><h3><i>\"HALLOWEEN, HALLOWEEN! I am in need of that sugar, so please throw some at me so that I can ingest it.\"</h3></i></br></br>Some years he would happily give it to you, and some years he would just cry.</br></br>If you decide to go through with this, it will eat up your night. Is it really the best way to get a candy bar?";
+			changeValues1(' Yep! ');
+			changeValues2(' Maybe something else... ');
 			pic = "pics/26.png";
 		}
 		else if(choice==2)
 		{
 			scene = 27;
-			show2(); show3();
-			message = "You suppose that you have a couple of choices when it comes to getting a taste of Sir Goodtaste. You try and weigh the choices.";
-			changeValues1(' I could go trick-or-treating ');
-			changeValues2(' I could hunt for one in the wild ');
-			changeValues3(' I could buy one in a store ');
+			show2(); hide3();
+			message = "Ahh yes! The hunt!</br>You think back to when your grandfather used to tell you stories of the hunt. You can hear his crooked old voice now.</br></br><h3><i>\"Sonny, back in the day, I used to go on the hunt. Once, I was in the mall on an escalator, and I saw a huge elephant at the bottom! What a prize she was.</br>I readied my harpoon, put my nose between the crosshairs, and shot right at the ceiling. A chandelier fell from directly above her, and I took her home. What a great meal.\"</h3></i></br></br>Society has come a long way since your grandfather used to poach elephants to eat whole. Are you sure you want to go on the hunt for your candy bar?";
+			changeValues1(' Yep! ');
+			changeValues2(' Maybe I\'ll do something else... ');
 			pic = "pics/27.png";
 		}
 		else if(choice==3)
 		{
 			scene = 28;
-			show2(); show3();
-			message = "You suppose that you have a couple of choices when it comes to getting a taste of Sir Goodtaste. You try and weigh the choices.";
-			changeValues1(' I could go trick-or-treating ');
-			changeValues2(' I could hunt for one in the wild ');
-			changeValues3(' I could buy one in a store ');
+			show2(); hide3();
+			message = "Consumerism, one of the most cherished traditions in life. You enjoy going to stores, which are large prisons where products live. In fact, you just went to a store the other day.</br>You wanted to buy more peas to arrange into a pyramid, and you became immediately perplexed by the vast array of things the store sold. Diapers, playing cards, lightbulbs, you name it. They had nearly everything, except the little part of your soul that you lost wandering the aisles for days.</br>Actually they did have that, but you forgot your coupon at home.</br></br>Are you sure that you want to go to the proud institution that is a store?";
+			changeValues1(' Yep! ');
+			changeValues2(' Maybe something else... ');
 			pic = "pics/28.png";
 		}
 	}
@@ -313,35 +310,35 @@ function changeScene(choice)
 
 //    A LIST OF WHICH SCENES ARE WHICH   
 // --------------------------------------
-// | 00 | Title screen			|
-// | 01 | You wake up			|
-// | 02 | It looks like you're dead	|
-// | 03 | Death recollection		|
-// | 04 | Balancing two sharks		|
-// | 05 | Waterskiing death		|
-// | 06 | Disappearing death		|
-// | 07 | What do you do next?		|
-// | 08 | Grass Inspection		|
-// | 09 | Whistling a song		|
-// | 10 | Looking at your iPod		|
-// | 11 | You notice the date!		|
-// | 12 | You know what to do		|
-// | 13 | What should you eat?		|
-// | 14 | A 4-course meal		|
-// | 15 | Joe Biden shows up		|
-// | 16 | Chocolate vision		|
-// | 17 | Joe Biden punches you		|
+// | 00 | Title screen					|
+// | 01 | You wake up					|
+// | 02 | It looks like you're dead		|
+// | 03 | Death recollection			|
+// | 04 | Balancing two sharks			|
+// | 05 | Waterskiing death				|
+// | 06 | Disappearing death			|
+// | 07 | What do you do next?			|
+// | 08 | Grass Inspection				|
+// | 09 | Whistling a song				|
+// | 10 | Looking at your iPod			|
+// | 11 | You notice the date!			|
+// | 12 | You know what to do			|
+// | 13 | What should you eat?			|
+// | 14 | A 4-course meal				|
+// | 15 | Joe Biden shows up			|
+// | 16 | Chocolate vision				|
+// | 17 | Joe Biden punches you			|
 // | 18 | Where could you get chocolate?|
-// | 19 | Entering your password	|
-// | 20 | Your only app is Music	|
-// | 21 | Weighing the choices		|
-// | 22 | The Sun is Dying (song)	|
-// | 23 | Look Through Me (song)	|
+// | 19 | Entering your password		|
+// | 20 | Your only app is Music		|
+// | 21 | Weighing the choices			|
+// | 22 | The Sun is Dying (song)		|
+// | 23 | Look Through Me (song)		|
 // | 24 | Sometime is Anytime (song)	|
 // | 25 | Theme of the Haunted (song)	|
-// | 26 | Start trick-or-treating	|
-// | 27 | Start hunting for chocolate	|
-// | 28 | Start looking for a store	|
+// | 26 | Consider trick-or-treating	|
+// | 27 | Consider hunting				|
+// | 28 | Consider going to a store		|
 // | 29 | |
 // | 30 | |
 // | 31 | |
