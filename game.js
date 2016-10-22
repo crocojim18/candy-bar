@@ -1,5 +1,6 @@
 var scene = 0;
 var pic = "pics/0.png";
+var seeniPod = false;
 			
 //Begin actual game content
 
@@ -46,7 +47,7 @@ function changeScene(choice)
 		if (choice==1)
 		{
 			scene = 4;
-			message = "You remember how you died. You were balancing two sharks on their noses while tight-roping over a canyon.</br>You thought you could counteract it by tight-roping over Life Valley, Death Valley's evil twin cousin, but alas, that tanked bigtime.";
+			message = "You remember how you died. You were balancing two sharks on their noses while tight-roping over a canyon blindfolded.</br>You thought you could counteract it by tight-roping over Life Valley, Death Valley's evil twin cousin, but alas, that tanked bigtime.";
 			changeValues1(' It was worth a shot! ');
 			pic = "pics/4.png";
 		}
@@ -91,7 +92,7 @@ function changeScene(choice)
 		else if (choice==2)
 		{
 			scene = 9;
-			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as \"The Sun is Dying and I am Killing It\" and \"Look Through Me (You Can Do That Now)\" and decide upon the spookiest song of them all.</br>\"Theme of the Haunted\" by Craig A. Peters.</br></br>It goes a little like this.";
+			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as \"The Sun is Dying and I'm Killing It\" and \"Look Through Me (You Can Do That Now)\" and decide upon the spookiest song of them all.</br>\"Theme of the Haunted\" by Craig A. Peters.</br></br>It goes a little like this.";
 			changeValues1(' It sounded better in my head. ');
 			pic = "9.png";
 		}
@@ -101,7 +102,8 @@ function changeScene(choice)
 			message = "You idly look at your iPod for some suggestion of what to do, but you forget your password.";
 			changeValues1(' Wait a minute, I noticed something! ');
 			show2();
-			changeValues2(' Try and figure out the password. ');
+			if (seeniPod!=true) changeValues2(' Try and figure out the password. ');
+			else changeValues2(' Enter your password ');
 			pic = "10.png";
 		}
 	}
@@ -213,7 +215,7 @@ function changeScene(choice)
 			pic = "21.png";
 		}
 	}
-	else if(scene == 19||scene==22)
+	else if(scene == 19||(scene>=22&&scene<=25))
 	{
 		if(choice)
 		{
@@ -221,11 +223,12 @@ function changeScene(choice)
 			if(pass=="3323")
 			{
 				scene = 20;
-				message = "Huh. It wasn't that before. Weird.</br></br>Anyway, what songs do you want to listen to?";
+				message = "The only app you have on your phone is Music.</br></br>What songs do you want to listen to?";
+				if(seeniPod==false) message = "Huh. It wasn't that before. Weird.</br></br>" + message;
+				seeniPod = true;
 				hideTextInput();
 				show2(); show3(); show4();show5();
-				//changeValues1(' "The Sun is Dying and I am Killing It" by Queen of the Scorched Earth ');
-				changeValues1(' Dead, Rotten Bodies ');
+				changeValues1(' "The Sun is Dying and I\'m Killing It" by Queen of the Scorched Earth ');
 				changeValues2(' "Look Through Me (You Can Do That Now)" by Albert Glass ');
 				changeValues3(' "Sometime is Anytime with All Time" by The Clocknuts ');
 				changeValues4(' "Theme of the Haunted" by Craig A. Peters ');
@@ -239,10 +242,67 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 22;
-			message = "<iframe style=\"border: 0; width: 100%; height: 42px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=4077816325/size=small/bgcol=ffffff/linkcol=0687f5/track=1622346461/transparent=true/\" seamless><a href=\"http://bipolemoment.bandcamp.com/album/chairpocalypse-never-say-never-say-never-official-soundtrack\">Chairpocalypse: Never Say Never Say Never (Official Soundtrack) by Bipole Moment</a></iframe></br></br>This is a pretty good song. Haunting. Ethereal. Not something you'd listen to at a concert, but pretty good.";
+			message = "[embedded music]</br></br><i>The Sun is Dying and I'm Killing It</i> commentary";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
 			pic = "pics/22.png";
+		}
+		if(choice==2)
+		{
+			scene = 23;
+			message = "[embedded music]</br></br><i>Look Through Me (You Can Do That Now)</i> commentary";
+			hide2(); hide3(); hide4();hide5();
+			changeValues1(' Go back to songs ');
+			pic = "pics/23.png";
+		}
+		if(choice==3)
+		{
+			scene = 24;
+			message = "[embedded music]</br></br><i>Sometime is Anytime with All Time</i> commentary";
+			hide2(); hide3(); hide4();hide5();
+			changeValues1(' Go back to songs ');
+			pic = "pics/24.png";
+		}
+		if(choice==4)
+		{
+			scene = 25;
+			message = "[embedded music]</br></br><i>Theme of the Haunted</i> commentary";
+			hide2(); hide3(); hide4();hide5();
+			changeValues1(' Go back to songs ');
+			pic = "pics/25.png";
+		}
+	}
+	else if(scene==21)
+	{
+		if(choice==1)
+		{
+			scene = 26;
+			show2(); show3();
+			message = "Trick-or-treating. An anceint, sacred tradition where children wander the street alone, ";
+			changeValues1(' I could go trick-or-treating ');
+			changeValues2(' I could hunt for one in the wild ');
+			changeValues3(' I could buy one in a store ');
+			pic = "pics/26.png";
+		}
+		else if(choice==2)
+		{
+			scene = 27;
+			show2(); show3();
+			message = "You suppose that you have a couple of choices when it comes to getting a taste of Sir Goodtaste. You try and weigh the choices.";
+			changeValues1(' I could go trick-or-treating ');
+			changeValues2(' I could hunt for one in the wild ');
+			changeValues3(' I could buy one in a store ');
+			pic = "pics/27.png";
+		}
+		else if(choice==3)
+		{
+			scene = 28;
+			show2(); show3();
+			message = "You suppose that you have a couple of choices when it comes to getting a taste of Sir Goodtaste. You try and weigh the choices.";
+			changeValues1(' I could go trick-or-treating ');
+			changeValues2(' I could hunt for one in the wild ');
+			changeValues3(' I could buy one in a store ');
+			pic = "pics/28.png";
 		}
 	}
 	
@@ -250,3 +310,45 @@ function changeScene(choice)
 	document.getElementById("sceneimg").src = pic;
 
 }
+
+//    A LIST OF WHICH SCENES ARE WHICH   
+// --------------------------------------
+// | 00 | Title screen			|
+// | 01 | You wake up			|
+// | 02 | It looks like you're dead	|
+// | 03 | Death recollection		|
+// | 04 | Balancing two sharks		|
+// | 05 | Waterskiing death		|
+// | 06 | Disappearing death		|
+// | 07 | What do you do next?		|
+// | 08 | Grass Inspection		|
+// | 09 | Whistling a song		|
+// | 10 | Looking at your iPod		|
+// | 11 | You notice the date!		|
+// | 12 | You know what to do		|
+// | 13 | What should you eat?		|
+// | 14 | A 4-course meal		|
+// | 15 | Joe Biden shows up		|
+// | 16 | Chocolate vision		|
+// | 17 | Joe Biden punches you		|
+// | 18 | Where could you get chocolate?|
+// | 19 | Entering your password	|
+// | 20 | Your only app is Music	|
+// | 21 | Weighing the choices		|
+// | 22 | The Sun is Dying (song)	|
+// | 23 | Look Through Me (song)	|
+// | 24 | Sometime is Anytime (song)	|
+// | 25 | Theme of the Haunted (song)	|
+// | 26 | Start trick-or-treating	|
+// | 27 | Start hunting for chocolate	|
+// | 28 | Start looking for a store	|
+// | 29 | |
+// | 30 | |
+// | 31 | |
+// | 32 | |
+// | 33 | |
+// | 34 | |
+// | 35 | |
+// | 36 | |
+// | 37 | |
+// --------------------------------------
