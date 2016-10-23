@@ -302,6 +302,47 @@ function changeScene(choice)
 			pic = "pics/28.png";
 		}
 	}
+	else if(scene==28)
+	{
+		if(choice==1)
+		{
+			scene = 29;
+			message = "Awesome!</br>You walk down the road a bit until you come to glowing metropolis that is DrugPlace&reg. Its large moat and many spires glisten in the late-October sun. You admire the fine architecture, and think of how many generations it must have taken to build this work of art. At least 7, you think, because their motto is <i>\"Welcome to DrugPlace&reg, which was built by more than 6 generations of humans in order that we may have a place to sell goods.\"</i></br></br>You arrive at the front door.";
+			pic = "pics/29.png";
+			changeValues1(' Throw all your weight at the door and barge into the store ');
+			changeValues2(' Politely wait for the automatic door to open ');
+		}
+	}
+	else if(scene==29)
+	{
+		if(choice)
+		{
+			scene = 30;
+			message = "\"Welcome to DrugPlace&reg! Can I help you find something?\", voice says from your left.</br>You look to your left and see a helpful employee. His nametag says \"Richard\".</br></br>\"Hi Richard,\" you respond. \"In fact, I am looking for something that can satisfy my greatest hunger. I have the hunger that an adult lion has when it sees thousands of zebras floating in the ocean. I have the same hunger passed down from my grandfather, though instead of eating elephants whole, I want to eat a single candy bar.\"</br>\"Ahh, yes, I can help with that,\" Richard says.";
+			pic = "pics/30.png";
+			changeValues1(' "What can you do?" ');
+			changeValues2(' "Actually, I can find one myself." ');
+		}
+	}
+	else if(scene==30)
+	{
+		if(choice==1)
+		{
+			scene = 31;
+			message = "Richard comes closer to your face. \"I can tell you in which aisle you will find a single candy bar.\" You nod approvingly, in a trance. He comes closer and whispers in your ear.</br></br><i>\"7.\"</i>";
+			pic = "pics/31.png";
+			changeValues1(' "That is the most beautiful number I have ever heard." ');
+			changeValues2(' Fall in love with Richard ');
+		}
+		else if(choice==2)
+		{
+			scene = 32;
+			message = "\"Okey-dokey!\", Richard says before dissolving into a fine mist.</br></br>You're all alone now. A sense of tension comes over you. Have you ever been alone before? It's so hard to think of a time before Richard.";
+			pic = "pics/32.png";
+			changeValues1(' Descend into madness. ');
+			changeValues2(' Stay calm. Be resolute. Walk towards an aisle. ');
+		}
+	}
 	
 	document.getElementById("scenetext").innerHTML = message;
 	document.getElementById("sceneimg").src = pic;
@@ -339,10 +380,10 @@ function changeScene(choice)
 // | 26 | Consider trick-or-treating	|
 // | 27 | Consider hunting				|
 // | 28 | Consider going to a store		|
-// | 29 | |
-// | 30 | |
-// | 31 | |
-// | 32 | |
+// | 29 | You arrive at DrugPlace®		|
+// | 30 | Richard's introduction		|
+// | 31 | Richard tells you the aisle	|
+// | 32 | Richard leaves you alone		|
 // | 33 | |
 // | 34 | |
 // | 35 | |
