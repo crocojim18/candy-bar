@@ -1,11 +1,14 @@
-var scene = 0;
+﻿var scene = 0;
 var pic = "pics/0.png";
 var seeniPod = false;
+var end = false;
+var tried = false;
 			
 //Begin actual game content
 
 function changeScene(choice)
 {
+	end = (scene==35&&choice==2);
 	//The basic outline goes like this
 	if (scene == 0)
 	{
@@ -75,13 +78,13 @@ function changeScene(choice)
 			changeValues1(' Play with the grass ');
 			show2(); show3();
 			changeValues2(' Try and whistle a haunting tune ');
-			changeValues3(' Look at your iPhone ');
+			changeValues3(' Look at your iPod ');
 			pic = "pics/2.png";
 		}
 	}
-	else if (scene == 7||(scene==20&&choice==5))
+	else if (scene == 7||(scene==20&&choice==5)||(scene==19&&choice==2))
 	{
-		hide2(); hide3();hide4();hide5();
+		hide2(); hide3();hide4();hide5();hideTextInput();
 		if (choice==1)
 		{
 			scene = 8;
@@ -89,14 +92,14 @@ function changeScene(choice)
 			changeValues1(' Listen to the grass. ');
 			pic = "8.png";
 		}
-		else if (choice==2)
+		else if (choice==2&&scene!=19)
 		{
 			scene = 9;
 			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as \"The Sun is Dying and I'm Killing It\" and \"Look Through Me (You Can Do That Now)\" and decide upon the spookiest song of them all.</br>\"Theme of the Haunted\" by Craig A. Peters.</br></br>It goes a little like this.";
 			changeValues1(' It sounded better in my head. ');
 			pic = "9.png";
 		}
-		else if (choice==3||choice==5)
+		else if (choice==3||choice==5||scene==19)
 		{
 			scene = 10;
 			message = "You idly look at your iPod for some suggestion of what to do, but you forget your password.";
@@ -120,8 +123,10 @@ function changeScene(choice)
 		else if (choice==2)
 		{
 			scene = 19;
+			show(2);
 			message = "What was your password again? ";
 			changeValues1(' Enter Passcode ');
+			changeValues2(' Stop Attempting Password ');
 			showTextInput();
 			pic = "19.png";
 		}
@@ -202,7 +207,7 @@ function changeScene(choice)
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18||(scene>=26&&scene<=28&&choice==2))
+	else if(scene==18||(scene>=26&&scene<=28&&choice==2)||(scene==35&&choice==1))
 	{
 		if(choice)
 		{
@@ -215,9 +220,9 @@ function changeScene(choice)
 			pic = "21.png";
 		}
 	}
-	else if(scene == 19||(scene>=22&&scene<=25))
+	else if((scene==19||(scene>=22&&scene<=25))&&choice==1)
 	{
-		if(choice)
+		if(choice==1)
 		{
 			var pass = getTextInput();
 			if(pass=="3323")
@@ -234,6 +239,15 @@ function changeScene(choice)
 				changeValues4(' "Theme of the Haunted" by Craig A. Peters ');
 				changeValues5(' I\'m done listening to music ');
 				pic = "20.png";
+				tried = false;
+			}
+			else
+			{
+				if(!tried)
+				{
+					message = message + "</br></br>Wrong password. Try again.";
+					tried = true;
+				}
 			}
 		}
 	}
@@ -343,50 +357,98 @@ function changeScene(choice)
 			changeValues2(' Stay calm. Be resolute. Walk towards an aisle. ');
 		}
 	}
+	else if(scene==31)
+	{
+		if(choice==1)
+		{
+			scene = 33;
+			show(3); show(4);
+			message = "\"I know, right?\", Richard says to you. \"Well, if you need me, I'll be up front putting people's money into boxes.\" He dissolves into a fine mist.</br></br>What should you do next?";
+			pic = "pics/33.png";
+			changeValues(1, ' Go to aisle 7 ');
+			changeValues(2, ' Go to aisle 8 ');
+			changeValues(3, ' Wander the aisles ');
+			changeValues(4, ' Go to the cash register ');
+		}
+		else if(choice==2)
+		{
+			scene = 34;
+			hide(2);
+			message = "You stare at Richard dreamily, and behind his face, you can tell he's staring back at you.</br>You've never felt this way, not even that time when you feel in love with the moon. The moon didn't love you back, but you feel Richard would at least give it a try.</br></br>You ask Richard on a date, and he says yes.";
+			pic = "pics/34.png";
+			changeValues(1, ' Grow old together ');
+		}
+	}
+	else if(scene==34)
+	{
+		if(choice)
+		{
+			scene = 35;
+			show(2);
+			message = "You and Richard start going steady. Your one year anniversary passes, then your two year anniversary. After 7 years together, the two of you go out for a fancy dinner, and you get down on your knee. You ask him to marry you, and you pull the ring out from behind your ear. He surprises you by pulling a ring out from behind <i>his</i> ear. He was planning on proposing to you this night. You laugh and cry in joy as the staff at the restaurant refill your Sodium Pop&regs and give you infinite breadsticks as congratulations.</br></br>You and Richard buy a small house on the outskirts of town and don't have kids, because you are a ghost after all. He dies at the ripe old age of 578 and you two have a wonderful afterlife together.</br></br>You, however, failed to get a candy bar. You lose.";
+			changeValues(1, ' Start from checkpoint ');
+			changeValues(2, ' Restart Game ');
+			pic = "pics/35.png";
+		}
+	}
+	else if(end)
+	{
+		scene = 0;
+		hide(2);hide(3);hide(4);hide(5);
+		message = "<p><h1>Some Ghost Game</h1></p><p><h2>by Marty Taylor</h2></p>";
+	}
 	
 	document.getElementById("scenetext").innerHTML = message;
 	document.getElementById("sceneimg").src = pic;
 
 }
 
-//    A LIST OF WHICH SCENES ARE WHICH   
-// --------------------------------------
-// | 00 | Title screen					|
-// | 01 | You wake up					|
-// | 02 | It looks like you're dead		|
-// | 03 | Death recollection			|
-// | 04 | Balancing two sharks			|
-// | 05 | Waterskiing death				|
-// | 06 | Disappearing death			|
-// | 07 | What do you do next?			|
-// | 08 | Grass Inspection				|
-// | 09 | Whistling a song				|
-// | 10 | Looking at your iPod			|
-// | 11 | You notice the date!			|
-// | 12 | You know what to do			|
-// | 13 | What should you eat?			|
-// | 14 | A 4-course meal				|
-// | 15 | Joe Biden shows up			|
-// | 16 | Chocolate vision				|
-// | 17 | Joe Biden punches you			|
-// | 18 | Where could you get chocolate?|
-// | 19 | Entering your password		|
-// | 20 | Your only app is Music		|
-// | 21 | Weighing the choices			|
-// | 22 | The Sun is Dying (song)		|
-// | 23 | Look Through Me (song)		|
-// | 24 | Sometime is Anytime (song)	|
-// | 25 | Theme of the Haunted (song)	|
-// | 26 | Consider trick-or-treating	|
-// | 27 | Consider hunting				|
-// | 28 | Consider going to a store		|
-// | 29 | You arrive at DrugPlace®		|
-// | 30 | Richard's introduction		|
-// | 31 | Richard tells you the aisle	|
-// | 32 | Richard leaves you alone		|
-// | 33 | |
-// | 34 | |
-// | 35 | |
-// | 36 | |
-// | 37 | |
-// --------------------------------------
+// ---------------------------------------------------------------
+// | ## |Name of scene                    | Goes to              |
+// ---------------------------------------------------------------
+// | 00 | Title screen                    | (01)                 |
+// | 01 | You wake up                     | (02)                 |
+// | 02 | It looks like you're dead       | (03)                 |
+// | 03 | Death recollection              | (04)(05)(06)         |
+// | 04 | Balancing two sharks            | (07)                 |
+// | 05 | Waterskiing death               | (07)                 |
+// | 06 | Disappearing death              | (07)                 |
+// | 07 | What do you do next?            | (08)(09)(10)         |
+// | 08 | Grass Inspection                | (07)                 |
+// | 09 | Whistling a song                | (07)                 |
+// | 10 | Looking at your iPod            | (11)(19)             |
+// | 11 | You notice the date!            | (12)                 |
+// | 12 | You know what to do             | (13)                 |
+// | 13 | What should you eat?            | (14)(16)(15)         |
+// | 14 | A 4-course meal                 | (13)                 |
+// | 15 | Joe Biden shows up              | (17)(17)             |
+// | 16 | Chocolate vision                | (18)(18)(18)         |
+// | 17 | Joe Biden punches you           | (13)                 |
+// | 18 | Where could you get chocolate?  | (21)                 |
+// | 19 | Entering your password          | (20)(10)             |
+// | 20 | Your only app is Music          | |
+// | 21 | Weighing the choices            | |
+// | 22 | The Sun is Dying (song)         | |
+// | 23 | Look Through Me (song)          | |
+// | 24 | Sometime is Anytime (song)      | |
+// | 25 | Theme of the Haunted (song)     | |
+// | 26 | Consider trick-or-treating      | |
+// | 27 | Consider hunting                | |
+// | 28 | Consider going to a store       | |
+// | 29 | You arrive at DrugPlace®        | |
+// | 30 | Richard's introduction          | |
+// | 31 | Richard tells you the aisle     | |
+// | 32 | Richard leaves you alone        | |
+// | 33 | Richard goes to the counter     | |
+// | 34 | You fall in love with Richard   | |
+// | 35 | You grow old with Richard       | |
+// | 36 | | |
+// | 37 | | |
+// ---------------------------------------
+
+//TO IMPLEMENT
+// 1. End of store storyline
+// 2. Trick-or-treating storyline
+// 3. Hunting storyline
+// 4. Songs (and whistling)
+// 5. Pictures

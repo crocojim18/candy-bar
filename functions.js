@@ -25,6 +25,11 @@ function changeValues5(message)
 	document.getElementById("choice5").value = message;
 }
 
+function changeValues(num, message)
+{
+	document.getElementById("choice"+num).value = message;
+}
+
 //These functions hide the buttons
 
 function hide1()
@@ -52,6 +57,11 @@ function hide5()
 	document.getElementById("choice5").style.display="none";
 }
 
+function hide(num)
+{
+	document.getElementById("choice"+num).style.display="none";
+}
+
 //These functions show the buttons
 
 function show1()
@@ -77,6 +87,11 @@ function show4()
 function show5()
 {
 	document.getElementById("choice5").style.display="block";
+}
+
+function show(num)
+{
+	document.getElementById("choice"+num).style.display="block";
 }
 
 //These functions change color, such as background and text color
