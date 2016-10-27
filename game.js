@@ -8,7 +8,7 @@ var tried = false;
 
 function changeScene(choice)
 {
-	end = (scene==35&&choice==2);
+	end = ((scene==35||scene==36)&&choice==2);
 	//The basic outline goes like this
 	if (scene == 0)
 	{
@@ -160,7 +160,7 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 14;
-			message = "You think about it.</br></br>Turkey, covered in gravy. A whole ham, stuffed with ice cubes and oranges. Green peas, arranged in a perfect triangular pyramid. A framed picture of a hashbrown. All 4 courses, with fries on the side and root beer served from a baseball cap.</br></br>But then again, you had that the night before last, and it's awkward to have the same thing twice in one week.";
+			message = "You think about it.</br></br>Turkey, covered in gravy. A whole ham, stuffed with ice cubes and oranges. Green peas, arranged in a perfect triangular pyramid. A framed picture of a hashbrown. All 4 courses, with fries on the side and Sodium Pop&reg served from a baseball cap.</br></br>But then again, you had that the night before last, and it's awkward to have the same thing twice in one week.";
 			changeValues1(' What else? ');
 			hide2();
 			pic = "14.png";
@@ -207,7 +207,7 @@ function changeScene(choice)
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18||(scene>=26&&scene<=28&&choice==2)||(scene==35&&choice==1))
+	else if(scene==18||(scene>=26&&scene<=28&&choice==2)||((scene==35||scene==36)&&choice==1))
 	{
 		if(choice)
 		{
@@ -332,7 +332,7 @@ function changeScene(choice)
 		if(choice)
 		{
 			scene = 30;
-			message = "\"Welcome to DrugPlace&reg! Can I help you find something?\", voice says from your left.</br>You look to your left and see a helpful employee. His nametag says \"Richard\".</br></br>\"Hi Richard,\" you respond. \"In fact, I am looking for something that can satisfy my greatest hunger. I have the hunger that an adult lion has when it sees thousands of zebras floating in the ocean. I have the same hunger passed down from my grandfather, though instead of eating elephants whole, I want to eat a single candy bar.\"</br>\"Ahh, yes, I can help with that,\" Richard says.";
+			message = "\"Welcome to DrugPlace&reg! Can I help you find something?\", a voice says from your left.</br>You look to your left and see a helpful employee. His nametag says \"Richard\".</br></br>\"Hi Richard,\" you respond. \"In fact, I am looking for something that can satisfy my greatest hunger. I have the hunger that an adult lion has when it sees thousands of zebras floating in the ocean. I have the same hunger passed down from my grandfather, though instead of eating elephants whole, I want to eat a single candy bar.\"</br>\"Ahh, yes, I can help with that,\" Richard says.";
 			pic = "pics/30.png";
 			changeValues1(' "What can you do?" ');
 			changeValues2(' "Actually, I can find one myself." ');
@@ -362,13 +362,12 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 33;
-			show(3); show(4);
+			show(3);
 			message = "\"I know, right?\", Richard says to you. \"Well, if you need me, I'll be up front putting people's money into boxes.\" He dissolves into a fine mist.</br></br>What should you do next?";
 			pic = "pics/33.png";
 			changeValues(1, ' Go to aisle 7 ');
-			changeValues(2, ' Go to aisle 8 ');
-			changeValues(3, ' Wander the aisles ');
-			changeValues(4, ' Go to the cash register ');
+			changeValues(2, ' Wander the aisles ');
+			changeValues(3, ' Go to the cash register ');
 		}
 		else if(choice==2)
 		{
@@ -377,6 +376,41 @@ function changeScene(choice)
 			message = "You stare at Richard dreamily, and behind his face, you can tell he's staring back at you.</br>You've never felt this way, not even that time when you feel in love with the moon. The moon didn't love you back, but you feel Richard would at least give it a try.</br></br>You ask Richard on a date, and he says yes.";
 			pic = "pics/34.png";
 			changeValues(1, ' Grow old together ');
+		}
+	}
+	else if(scene==32||(scene==33&&choice==2))
+	{
+		if(choice==1)
+		{
+			scene = 36;
+			message = "Your world becomes a spiraling mess of <i>\"where did Richard go?\"</i>, <i>\"what do I do without Richard?\"</i>, and <i>\"Richardless life? How can that be?\"</i></br>You fall on the ground, crying more than any ghost has ever cried. The staff at DrugPlace&reg kicks you out after an hour.</br></br>You try and regather your life, but nothing is ever the same. When you look in a mirror, you see Richard instead of the nothingness most ghosts see in mirrors. You try and recall all the tender words he ever said to you, but it's nothing compared to the real deal.</br></br>You do not get a candy bar. You lose.";
+			pic = "pics/36.png";
+			changeValues(1, ' Start from Checkpoint ');
+			changeValues(2, ' Restart Game ');
+		}
+		else if(choice==2)
+		{
+			show1();hide2();hide3();hide4();
+			scene = 37;
+			message = "You start strolling down the aisles, still as amazed as before. They really <i>do</i> have it all. You twirl around in the middle of the aisle, overcome with the joy of the products you see before you.</br>You take a Sodium Pop&reg off the shelf and throw it in the air. You try and catch it, but miss, and it falls through the floor. You remember you're a ghost and now you wonder how you even picked it up in the first place.";
+			changeValues(1, ' Continue down the aisle. ');
+			pic = "pics/37.png";
+		}
+	}
+	else if((scene==39&&choice==1)||(scene==33&&choice!=2))
+	{
+		if(choice==1)
+		{
+			pic = "pics/40.png";
+			hide(2);
+			message = "Aisle 7. On the ceiling of this aisle is a small plaque announcing what Products&reg are sold in this aisle. It says one item. <i>\"Sir Goodtaste\"</i>.</br></br>It's lying there on the ground in the middle of the aisle. You approach slowly, baffled that it could all be this easy. You look behind you, and you've been completely unfollowed. You pick it up.</br></br><b>You have acquired one (1) candy bar.</b>";
+			if(scene==39) message = "You arrive at another aisle.</br>" + message;
+			scene = 40;
+			changeValues(1, ' Go up to the counter ');
+		}
+		else if(choice==3)
+		{
+			//go to the cash register
 		}
 	}
 	else if(scene==34)
@@ -391,11 +425,33 @@ function changeScene(choice)
 			pic = "pics/35.png";
 		}
 	}
+	else if(scene==37)
+	{
+		if(choice)
+		{
+			scene = 38;
+			pic = "pics/38.png";
+			message = "Oh man! They have Tissues&reg, which are one of your favorite Products&reg. You sometimes pray that you get a Runny Nose&reg so that you can rub the piece of paper on your Face&reg. You feel slightly guilty for this, but sometimes you've lied about having to sneeze so that you could use a Tissue&reg.</br></br>You try to pick up a box but it seems you can't pick this up either.";
+		}
+	}
+	else if(scene==38)
+	{
+		if(choice)
+		{
+			scene=39;
+			pic = "pics/39.png";
+			show(2);
+			message = "Wait a minute.</br>You just realized, you have no idea where you are. You look behind you and can't see the end of the aisle. You turn around again and swear that's a different exit than you just saw. You look up and there is no ceiling, just infinite void.</br>Here you are, stuck in the bowels of DrugPlace&reg, with no exit in sight. It's last Tuesday through Thursday again.</br></br>Your thinking clears. You need a candy bar. This is a mission. You somehow reach the end of the aisle. Where should you go?";
+			changeValues1(' To Another Aisle ');
+			changeValues2(' To the Mysterious Dungeon at the end of the aisle ');
+		}
+	}
 	else if(end)
 	{
 		scene = 0;
 		hide(2);hide(3);hide(4);hide(5);
 		message = "<p><h1>Some Ghost Game</h1></p><p><h2>by Marty Taylor</h2></p>";
+		pic = "pics/0.png";
 	}
 	
 	document.getElementById("scenetext").innerHTML = message;
@@ -426,25 +482,34 @@ function changeScene(choice)
 // | 17 | Joe Biden punches you           | (13)                 |
 // | 18 | Where could you get chocolate?  | (21)                 |
 // | 19 | Entering your password          | (20)(10)             |
-// | 20 | Your only app is Music          | |
-// | 21 | Weighing the choices            | |
-// | 22 | The Sun is Dying (song)         | |
-// | 23 | Look Through Me (song)          | |
-// | 24 | Sometime is Anytime (song)      | |
-// | 25 | Theme of the Haunted (song)     | |
-// | 26 | Consider trick-or-treating      | |
-// | 27 | Consider hunting                | |
-// | 28 | Consider going to a store       | |
-// | 29 | You arrive at DrugPlace®        | |
-// | 30 | Richard's introduction          | |
-// | 31 | Richard tells you the aisle     | |
-// | 32 | Richard leaves you alone        | |
-// | 33 | Richard goes to the counter     | |
-// | 34 | You fall in love with Richard   | |
-// | 35 | You grow old with Richard       | |
-// | 36 | | |
-// | 37 | | |
-// ---------------------------------------
+// | 20 | Your only app is Music          | (22)(23)(24)(25)(10) |
+// | 21 | Weighing the choices            | (26)(27)(28)         |
+// | 22 | The Sun is Dying (song)         | (20)                 |
+// | 23 | Look Through Me (song)          | (20)                 |
+// | 24 | Sometime is Anytime (song)      | (20)                 |
+// | 25 | Theme of the Haunted (song)     | (20)                 |
+// | 26 | Consider trick-or-treating      | (--)(21)             |
+// | 27 | Consider hunting                | (--)(21)             |
+// | 28 | Consider going to a store       | (29)(21)             |
+// | 29 | You arrive at DrugPlace®        | (30)(30)             |
+// | 30 | Richard's introduction          | (31)(32)             |
+// | 31 | Richard tells you the aisle     | (33)(34)             |
+// | 32 | Richard leaves you alone        | (36)(37)             |
+// | 33 | Richard goes to the counter     | (40)(37)(--)         |
+// | 34 | You fall in love with Richard   | (35)                 |
+// | 35 | You grow old with Richard       | (21)(00)             |
+// | 36 | You live your life without him  | (21)(00)             |
+// | 37 | You pick up Sodium Pop®         | (38)                 |
+// | 38 | You look at Tissues®            | (39)                 |
+// | 39 | Your aisle is a labyrinth       | (40)(41)             |
+// | 40 | You arrive at Aisle 7           | (--)                 |
+// | 41 | You go into the dungeon         | (--)(--)             |
+// | 42 |                                 |                      |
+// | 43 |                                 |                      |
+// | 44 |                                 |                      |
+// | 45 |                                 |                      |
+// | 46 |                                 |                      |
+// ---------------------------------------------------------------
 
 //TO IMPLEMENT
 // 1. End of store storyline
