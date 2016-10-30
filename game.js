@@ -66,7 +66,7 @@ function changeScene(choice)
 			scene = 6;
 			message = "You had just gotten home from work, when you sat down on the couch. You stared at the TV blankly for hours until you slowly faded away.";
 			changeValues1(' Yeah, that was a hard time. ');
-			pic = "6.png";
+			pic = "pics/6.gif";
 		}
 	}
 	else if (scene==4||scene==5||scene==6||scene==8||scene==9)
@@ -90,14 +90,14 @@ function changeScene(choice)
 			scene = 8;
 			message = "You look down at the grass and pick up a blade. You inspect it thoroughly, taking note of each bump and groove. You pick up another and compare it. It is very similar but there are some differences.</br>You pick up more and more blades, soon by the hundreds. Your hands and arms are overflowing with grass.</br></br>The grass asks for you to put it down.";
 			changeValues1(' Listen to the grass. ');
-			pic = "8.png";
+			pic = "pics/8.png";
 		}
 		else if (choice==2&&scene!=19)
 		{
 			scene = 9;
 			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as \"The Sun is Dying and I'm Killing It\" and \"Look Through Me (You Can Do That Now)\" and decide upon the spookiest song of them all.</br>\"Theme of the Haunted\" by Craig A. Peters.</br></br>It goes a little like this.";
 			changeValues1(' It sounded better in my head. ');
-			pic = "9.png";
+			pic = "pics/9.png";
 		}
 		else if (choice==3||choice==5||scene==19)
 		{
@@ -107,7 +107,7 @@ function changeScene(choice)
 			show2();
 			if (seeniPod!=true) changeValues2(' Try and figure out the password. ');
 			else changeValues2(' Enter your password ');
-			pic = "10.png";
+			pic = "pics/10.png";
 		}
 	}
 	else if (scene==10)
@@ -118,7 +118,7 @@ function changeScene(choice)
 			scene = 11;
 			message = "You notice the date! It's Halloween!</br>You love Halloween, and you can't believe it. You haven't felt this happy since the time your father left you in an abandoned bowling alley and you got to name all the pins.";
 			changeValues1(' Those were good times. ');
-			pic = "11.png";
+			pic = "pics/11.png";
 		}
 		else if (choice==2)
 		{
@@ -128,7 +128,7 @@ function changeScene(choice)
 			changeValues1(' Enter Passcode ');
 			changeValues2(' Stop Attempting Password ');
 			showTextInput();
-			pic = "19.png";
+			pic = "pics/19.png";
 		}
 	}
 	else if (scene==11)
@@ -138,7 +138,7 @@ function changeScene(choice)
 			scene = 12;
 			message = "Suddenly, it hits you. You know exactly what you can do today.</br></br>Thousands of small, frightenable children will be walking the streets looking for candy under rocks and in mailboxes, and you can,</br>by golly, you can <b>JOIN</b> them.";
 			changeValues1(' This gives me purpose. ');
-			pic = "12.png";
+			pic = "pics/12.png";
 		}
 	}
 	else if (scene==12||scene==14||scene==17)
@@ -151,7 +151,7 @@ function changeScene(choice)
 			show2(); show3();
 			changeValues2(' A single candy bar. ');
 			changeValues3(' A knuckle sandwich. ');
-			pic = "13.png";
+			pic = "pics/13.png";
 		}
 	}
 	else if (scene==13)
@@ -163,7 +163,7 @@ function changeScene(choice)
 			message = "You think about it.</br></br>Turkey, covered in gravy. A whole ham, stuffed with ice cubes and oranges. Green peas, arranged in a perfect triangular pyramid. A framed picture of a hashbrown. All 4 courses, with fries on the side and Sodium Pop&reg served from a baseball cap.</br></br>But then again, you had that the night before last, and it's awkward to have the same thing twice in one week.";
 			changeValues1(' What else? ');
 			hide2();
-			pic = "14.png";
+			pic = "pics/14.png";
 		}
 		else if(choice==2)
 		{
@@ -181,8 +181,8 @@ function changeScene(choice)
 			scene = 15;
 			message = "You think about it, and you haven't had a knuckle sandwich in quite a while!</br>As you sit there contemplating it, a limousine rolls up to your grave. The back door opens, and Vice President Joe Biden walks out.";
 			changeValues1(' Say, "Hello Mr. Biden! How is your day?" ');
-			changeValues2(' Say, "Howdy-doo, the Honorable Joseph R. Biden, Jr. What brings you to this part of town?" ');
-			pic = "15.png";
+			changeValues2(' Say, "Howdy-doo, the Honorable Joseph Robinette Biden, Jr. What brings you to this part of town?" ');
+			pic = "pics/15.png";
 		}
 	}
 	else if (scene==15)
@@ -397,7 +397,7 @@ function changeScene(choice)
 			pic = "pics/37.png";
 		}
 	}
-	else if((scene==39&&choice==1)||(scene==33&&choice!=2))
+	else if((scene==39&&choice==1)||(scene==33&&choice!=2)||(scene==42))
 	{
 		if(choice==1)
 		{
@@ -410,7 +410,11 @@ function changeScene(choice)
 		}
 		else if(choice==3)
 		{
-			//go to the cash register
+			scene = 42;
+			hide2(); hide3();
+			pic = "pics/42.png";
+			message = "\"Hey there,\" says Richard, as he shoves dollar bills into a small box. \"Was there not a single candy bar in aisle 7?\" You feel embarrassed for not even looking.</br>\"I won't be able to check you out until you get the candy bar to buy,\" he reminds you. You forgot about that part. Shopping is hard.";
+			changeValues1(' Go to aisle 7 ');
 		}
 	}
 	else if(scene==34)
@@ -441,7 +445,7 @@ function changeScene(choice)
 			scene=39;
 			pic = "pics/39.png";
 			show(2);
-			message = "Wait a minute.</br>You just realized, you have no idea where you are. You look behind you and can't see the end of the aisle. You turn around again and swear that's a different exit than you just saw. You look up and there is no ceiling, just infinite void.</br>Here you are, stuck in the bowels of DrugPlace&reg, with no exit in sight. It's last Tuesday through Thursday again.</br></br>Your thinking clears. You need a candy bar. This is a mission. You somehow reach the end of the aisle. Where should you go?";
+			message = "Wait a minute.</br>You just realized, you have no idea where you are. You look behind you and can't see the end of the aisle. You turn around again and swear that's a different exit than you just saw. You look up and there is a ceiling, but it's dark and musty.</br>Here you are, stuck in the bowels of DrugPlace&reg, with no exit in sight. It's last Tuesday through Thursday all over again.</br></br>Your thinking clears. You need a candy bar. This is a mission. You somehow reach the end of the aisle. Where should you go?";
 			changeValues1(' To Another Aisle ');
 			changeValues2(' To the Mysterious Dungeon at the end of the aisle ');
 		}
@@ -462,23 +466,23 @@ function changeScene(choice)
 // ---------------------------------------------------------------
 // | ## |Name of scene                    | Goes to              |
 // ---------------------------------------------------------------
-// | 00 | Title screen                    | (01)                 |
-// | 01 | You wake up                     | (02)                 |
-// | 02 | It looks like you're dead       | (03)                 |
-// | 03 | Death recollection              | (04)(05)(06)         |
-// | 04 | Balancing two sharks            | (07)                 |
-// | 05 | Waterskiing death               | (07)                 |
-// | 06 | Disappearing death              | (07)                 |
-// | 07 | What do you do next?            | (08)(09)(10)         |
-// | 08 | Grass Inspection                | (07)                 |
+// | 00 | Title screen                    | (01)                 | x
+// | 01 | You wake up                     | (02)                 | x
+// | 02 | It looks like you're dead       | (03)                 | x
+// | 03 | Death recollection              | (04)(05)(06)         | x
+// | 04 | Balancing two sharks            | (07)                 | x
+// | 05 | Waterskiing death               | (07)                 | x
+// | 06 | Disappearing death              | (07)                 | x
+// | 07 | What do you do next?            | (08)(09)(10)         | x
+// | 08 | Grass Inspection                | (07)                 | x
 // | 09 | Whistling a song                | (07)                 |
 // | 10 | Looking at your iPod            | (11)(19)             |
 // | 11 | You notice the date!            | (12)                 |
 // | 12 | You know what to do             | (13)                 |
 // | 13 | What should you eat?            | (14)(16)(15)         |
 // | 14 | A 4-course meal                 | (13)                 |
-// | 15 | Joe Biden shows up              | (17)(17)             |
-// | 16 | Chocolate vision                | (18)(18)(18)         |
+// | 15 | Joe Biden shows up              | (17)(17)             | x
+// | 16 | Chocolate vision                | (18)(18)(18)         | x
 // | 17 | Joe Biden punches you           | (13)                 |
 // | 18 | Where could you get chocolate?  | (21)                 |
 // | 19 | Entering your password          | (20)(10)             |
@@ -491,20 +495,20 @@ function changeScene(choice)
 // | 26 | Consider trick-or-treating      | (--)(21)             |
 // | 27 | Consider hunting                | (--)(21)             |
 // | 28 | Consider going to a store       | (29)(21)             |
-// | 29 | You arrive at DrugPlace®        | (30)(30)             |
-// | 30 | Richard's introduction          | (31)(32)             |
-// | 31 | Richard tells you the aisle     | (33)(34)             |
-// | 32 | Richard leaves you alone        | (36)(37)             |
-// | 33 | Richard goes to the counter     | (40)(37)(--)         |
+// | 29 | You arrive at DrugPlace®        | (30)(30)             | x
+// | 30 | Richard's introduction          | (31)(32)             | x
+// | 31 | Richard tells you the aisle     | (33)(34)             | x
+// | 32 | Richard leaves you alone        | (36)(37)             | x
+// | 33 | Richard goes to the counter     | (40)(37)(42)         | x
 // | 34 | You fall in love with Richard   | (35)                 |
 // | 35 | You grow old with Richard       | (21)(00)             |
 // | 36 | You live your life without him  | (21)(00)             |
-// | 37 | You pick up Sodium Pop®         | (38)                 |
-// | 38 | You look at Tissues®            | (39)                 |
-// | 39 | Your aisle is a labyrinth       | (40)(41)             |
-// | 40 | You arrive at Aisle 7           | (--)                 |
+// | 37 | You pick up Sodium Pop®         | (38)                 | x
+// | 38 | You look at Tissues®            | (39)                 | x
+// | 39 | Your aisle is a labyrinth       | (40)(41)             | x
+// | 40 | Aisle 7                         | (--)                 | x
 // | 41 | You go into the dungeon         | (--)(--)             |
-// | 42 |                                 |                      |
+// | 42 | At the counter without candy    | (40)                 |
 // | 43 |                                 |                      |
 // | 44 |                                 |                      |
 // | 45 |                                 |                      |
