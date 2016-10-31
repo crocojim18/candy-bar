@@ -82,7 +82,7 @@ function changeScene(choice)
 			pic = "pics/2.png";
 		}
 	}
-	else if (scene == 7||(scene==20&&choice==5)||(scene==19&&choice==2))
+	else if (scene == 7||(scene==20&&choice==4)||(scene==19&&choice==2))
 	{
 		hide2(); hide3();hide4();hide5();hideTextInput();
 		if (choice==1)
@@ -99,7 +99,7 @@ function changeScene(choice)
 			changeValues1(' It sounded better in my head. ');
 			pic = "pics/9.png";
 		}
-		else if (choice==3||choice==5||scene==19)
+		else if (choice==3||scene==20||scene==19)
 		{
 			scene = 10;
 			message = "You idly look at your iPod for some suggestion of what to do, but you forget your password.";
@@ -228,18 +228,18 @@ function changeScene(choice)
 			if(pass=="3323")
 			{
 				scene = 20;
-				hide4();
+				hide5();
 				message = "The only app you have on your phone is Music.</br></br>What songs do you want to listen to?";
 				if(seeniPod==false) message = "Huh. It wasn't that before. Weird.</br></br>" + message;
 				seeniPod = true;
 				hideTextInput();
-				show2(); show3(); show4();show5();
+				show2(); show3(); show4();
 				changeValues1(' "The Sun is Dying and I\'m Killing It" by Queen of the Scorched Earth ');
 				changeValues2(' "Look Through Me (You Can Do That Now)" by Albert Glass ');
 				//changeValues3(' "Sometime is Anytime with All Time" by The Clocknuts ');
 				changeValues(3, ' "Theme of the Haunted" by Craig A. Peters ');
-				changeValues5(' I\'m done listening to music ');
-				pic = "20.png";
+				changeValues4(' I\'m done listening to music ');
+				pic = "pics/20.png";
 				tried = false;
 			}
 			else
@@ -257,7 +257,7 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 22;
-			message = "[embedded music]</br></br><i>The Sun is Dying and I'm Killing It</i> commentary";
+			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/290752357&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br>You love <i>The Sun is Dying and I'm Killing It</i>. It's Queen of the Scorched Earth's stunning masterpiece about an anti-social hero who wants the Sun to blow up and destroy the Earth. It really resonated with you as a teenager, and was a hit amongst your peers at school dances. They would request this song about every 10 minutes, and the DJ always listened to them.</br></br><i>(Album art by the wonderfully talented <a href=\"https://mylameinternethome.tumblr.com/\">Emily</a>)</i>";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
 			pic = "pics/22.png";
@@ -265,7 +265,7 @@ function changeScene(choice)
 		if(choice==2)
 		{
 			scene = 23;
-			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289671126&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br><i>Look Through Me (You Can Do That Now)</i> commentary";
+			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289671126&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br><i>Look Through Me (You Can Do That Now)</i> is one of the better songs by Albert Glass, off his 1981 album <i>Dear Lord, I'm a Ghost</i>. The song is kind of tainted for you because when you were in high school, and you were dating an old girlfriend of yours, it was <i>\"your song\"</i>, and eventually she left you for an invisible man that could fly, which in retrospect, is pretty ironic.";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
 			pic = "pics/23.png";
@@ -403,7 +403,7 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			pic = "pics/40.png";
-			hide(2);
+			hide(2);hide(3);
 			message = "Aisle 7. On the ceiling of this aisle is a small plaque announcing what Products&reg are sold in this aisle. It says one item. <i>\"Sir Goodtaste\"</i>.</br></br>It's lying there on the ground in the middle of the aisle. You approach slowly, baffled that it could all be this easy. You look behind you, and you've been completely unfollowed. You pick it up.</br></br><b>You have acquired one (1) candy bar.</b>";
 			if(scene==39) message = "You arrive at another aisle.</br>" + message;
 			scene = 40;
@@ -485,57 +485,57 @@ function changeScene(choice)
 
 }
 
-// ---------------------------------------------------------------
-// | ## |Name of scene                    | Goes to              |
-// ---------------------------------------------------------------
-// | 00 | Title screen                    | (01)                 | x
-// | 01 | You wake up                     | (02)                 | x
-// | 02 | It looks like you're dead       | (03)                 | x
-// | 03 | Death recollection              | (04)(05)(06)         | x
-// | 04 | Balancing two sharks            | (07)                 | x
-// | 05 | Waterskiing death               | (07)                 | x
-// | 06 | Disappearing death              | (07)                 | x
-// | 07 | What do you do next?            | (08)(09)(10)         | x
-// | 08 | Grass Inspection                | (07)                 | x
-// | 09 | Whistling a song                | (07)                 |
-// | 10 | Looking at your iPod            | (11)(19)             |
-// | 11 | You notice the date!            | (12)                 |
-// | 12 | You know what to do             | (13)                 |
-// | 13 | What should you eat?            | (14)(16)(15)         |
-// | 14 | A 4-course meal                 | (13)                 |
-// | 15 | Joe Biden shows up              | (17)(17)             | x
-// | 16 | Chocolate vision                | (18)(18)(18)         | x
-// | 17 | Joe Biden punches you           | (13)                 |
-// | 18 | Where could you get chocolate?  | (21)                 |
-// | 19 | Entering your password          | (20)(10)             |
-// | 20 | Your only app is Music          | (22)(23)(25)(--)(10) |
-// | 21 | Weighing the choices            | (26)(27)(28)         |
-// | 22 | The Sun is Dying (song)         | (20)                 | x
-// | 23 | Look Through Me (song)          | (20)                 | x
-// | 24 | Sometime is Anytime (song)      | (20)                 |
-// | 25 | Theme of the Haunted (song)     | (20)                 |
-// | 26 | Consider trick-or-treating      | (--)(21)             |
-// | 27 | Consider hunting                | (--)(21)             |
-// | 28 | Consider going to a store       | (29)(21)             |
-// | 29 | You arrive at DrugPlace®        | (30)(30)             | x
-// | 30 | Richard's introduction          | (31)(32)             | x
-// | 31 | Richard tells you the aisle     | (33)(34)             | x
-// | 32 | Richard leaves you alone        | (36)(37)             | x
-// | 33 | Richard goes to the counter     | (40)(37)(42)         | x
-// | 34 | You fall in love with Richard   | (35)                 |
-// | 35 | You grow old with Richard       | (21)(00)             |
-// | 36 | You live your life without him  | (21)(00)             |
-// | 37 | You pick up Sodium Pop®         | (38)                 | x
-// | 38 | You look at Tissues®            | (39)                 | x
-// | 39 | Your aisle is a labyrinth       | (40)(41)             | x
-// | 40 | Aisle 7                         | (42)                 | x
-// | 41 | You go into the dungeon         | (21)(00)             | x
-// | 42 | At the counter without candy    | (40)                 |
-// | 43 | You go to the counter with candy| (--)                 |
-// | 44 |                                 |                      |
-// | 45 |                                 |                      |
-// | 46 |                                 |                      |
-// ---------------------------------------------------------------
+// ---------------------------------------------------------------------
+// | ## |Name of scene                    | Goes to              | Pic |
+// ---------------------------------------------------------------------
+// | 00 | Title screen                    | (01)                 | x   |
+// | 01 | You wake up                     | (02)                 | x   |
+// | 02 | It looks like you're dead       | (03)                 | x   |
+// | 03 | Death recollection              | (04)(05)(06)         | x   |
+// | 04 | Balancing two sharks            | (07)                 | x   |
+// | 05 | Waterskiing death               | (07)                 | x   |
+// | 06 | Disappearing death              | (07)                 | x   |
+// | 07 | What do you do next?            | (08)(09)(10)         | x   |
+// | 08 | Grass Inspection                | (07)                 | x   |
+// | 09 | Whistling a song                | (07)                 |     |
+// | 10 | Looking at your iPod            | (11)(19)             | x   |
+// | 11 | You notice the date!            | (12)                 | x   |
+// | 12 | You know what to do             | (13)                 |     |
+// | 13 | What should you eat?            | (14)(16)(15)         |     |
+// | 14 | A 4-course meal                 | (13)                 |     |
+// | 15 | Joe Biden shows up              | (17)(17)             | x   |
+// | 16 | Chocolate vision                | (18)(18)(18)         | x   |
+// | 17 | Joe Biden punches you           | (13)                 |     |
+// | 18 | Where could you get chocolate?  | (21)                 |     |
+// | 19 | Entering your password          | (20)(10)             | x   |
+// | 20 | Your only app is Music          | (22)(23)(25)(10)     | x   |
+// | 21 | Weighing the choices            | (26)(27)(28)         |     |
+// | 22 | The Sun is Dying (song)         | (20)                 | x   |
+// | 23 | Look Through Me (song)          | (20)                 | x   |
+// | 24 | Sometime is Anytime (song)      | (20)                 |     |
+// | 25 | Theme of the Haunted (song)     | (20)                 | x   |
+// | 26 | Consider trick-or-treating      | (--)(21)             |     |
+// | 27 | Consider hunting                | (--)(21)             |     |
+// | 28 | Consider going to a store       | (29)(21)             |     |
+// | 29 | You arrive at DrugPlace®        | (30)(30)             | x   |
+// | 30 | Richard's introduction          | (31)(32)             | x   |
+// | 31 | Richard tells you the aisle     | (33)(34)             | x   |
+// | 32 | Richard leaves you alone        | (36)(37)             | x   |
+// | 33 | Richard goes to the counter     | (40)(37)(42)         | x   |
+// | 34 | You fall in love with Richard   | (35)                 |     |
+// | 35 | You grow old with Richard       | (21)(00)             |     |
+// | 36 | You live your life without him  | (21)(00)             |     |
+// | 37 | You pick up Sodium Pop®         | (38)                 | x   |
+// | 38 | You look at Tissues®            | (39)                 | x   |
+// | 39 | Your aisle is a labyrinth       | (40)(41)             | x   |
+// | 40 | Aisle 7                         | (42)                 | x   |
+// | 41 | You go into the dungeon         | (21)(00)             | x   |
+// | 42 | At the counter without candy    | (40)                 |     |
+// | 43 | You go to the counter with candy| (--)                 |     |
+// | 44 |                                 |                      |     |
+// | 45 |                                 |                      |     |
+// | 46 |                                 |                      |     |
+// ---------------------------------------------------------------------
 
 //TO IMPLEMENT
 // 1. End of store storyline
