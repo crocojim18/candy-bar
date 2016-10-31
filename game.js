@@ -8,7 +8,7 @@ var tried = false;
 
 function changeScene(choice)
 {
-	end = ((scene==35||scene==36)&&choice==2);
+	end = ((scene==35||scene==36||scene==41)&&choice==2);
 	//The basic outline goes like this
 	if (scene == 0)
 	{
@@ -207,7 +207,7 @@ function changeScene(choice)
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18||(scene>=26&&scene<=28&&choice==2)||((scene==35||scene==36)&&choice==1))
+	else if(scene==18||(scene>=26&&scene<=28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
 	{
 		if(choice)
 		{
@@ -228,6 +228,7 @@ function changeScene(choice)
 			if(pass=="3323")
 			{
 				scene = 20;
+				hide4();
 				message = "The only app you have on your phone is Music.</br></br>What songs do you want to listen to?";
 				if(seeniPod==false) message = "Huh. It wasn't that before. Weird.</br></br>" + message;
 				seeniPod = true;
@@ -235,8 +236,8 @@ function changeScene(choice)
 				show2(); show3(); show4();show5();
 				changeValues1(' "The Sun is Dying and I\'m Killing It" by Queen of the Scorched Earth ');
 				changeValues2(' "Look Through Me (You Can Do That Now)" by Albert Glass ');
-				changeValues3(' "Sometime is Anytime with All Time" by The Clocknuts ');
-				changeValues4(' "Theme of the Haunted" by Craig A. Peters ');
+				//changeValues3(' "Sometime is Anytime with All Time" by The Clocknuts ');
+				changeValues(3, ' "Theme of the Haunted" by Craig A. Peters ');
 				changeValues5(' I\'m done listening to music ');
 				pic = "20.png";
 				tried = false;
@@ -264,12 +265,12 @@ function changeScene(choice)
 		if(choice==2)
 		{
 			scene = 23;
-			message = "[embedded music]</br></br><i>Look Through Me (You Can Do That Now)</i> commentary";
+			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289671126&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br><i>Look Through Me (You Can Do That Now)</i> commentary";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
 			pic = "pics/23.png";
 		}
-		if(choice==3)
+		if(choice==400)
 		{
 			scene = 24;
 			message = "[embedded music]</br></br><i>Sometime is Anytime with All Time</i> commentary";
@@ -277,7 +278,7 @@ function changeScene(choice)
 			changeValues1(' Go back to songs ');
 			pic = "pics/24.png";
 		}
-		if(choice==4)
+		if(choice==3)
 		{
 			scene = 25;
 			message = "[embedded music]</br></br><i>Theme of the Haunted</i> commentary";
@@ -450,11 +451,32 @@ function changeScene(choice)
 			changeValues2(' To the Mysterious Dungeon at the end of the aisle ');
 		}
 	}
+	else if(scene==39&&choice==2)
+	{
+		if(choice==2)
+		{
+			scene = 41;
+			pic = "pics/41.png";
+			message = "You roll back the stone to go into the Mysterious Dungeon at the end of the aisle. You look down into the hole, which descends miles into the Earth's crust. You start climbing down the ladder, rung after rung, but your foot slips and you start falling down the hole.</br>After a while, you 'hit' the bottom, but since you're a ghost and are technically intangible, you fall straight through the ground. You spend the rest of eternity falling through the Earth's crust, coming out the other side, and going back through, like a giant yo-yo.</br></br>You did not get a candy bar. You lose.";
+			changeValues(1, ' Start from Checkpoint ');
+			changeValues(2, ' Restart Game ');
+		}
+	}
+	else if(scene==40)
+	{
+		if(choice)
+		{
+			scene = 43;
+			pic = "pics/43.png";
+			message = "\"Howdy!\", shouts Richard. \"Are you ready to officially own your candy bar?\"</br>You walk closer to the counter, which is where Richard is putting other people's money in boxes. You're not sure whether you remember how to purchase items.</br></br>\"Don't worry,\" Richard responds, because he can read your mind. \"Purchasing an item is simple. First, you hand me the item.\"";
+			changeValues(' Hand him the candy bar ');
+		}
+	}
 	else if(end)
 	{
 		scene = 0;
 		hide(2);hide(3);hide(4);hide(5);
-		message = "<p><h1>Some Ghost Game</h1></p><p><h2>by Marty Taylor</h2></p>";
+		message = "<p><h1>Can You Obtain One Candy Bar?</h1></p><p><h2>a choose-your-own-adventure game by Marty Taylor</h2></p>";
 		pic = "pics/0.png";
 	}
 	
@@ -486,10 +508,10 @@ function changeScene(choice)
 // | 17 | Joe Biden punches you           | (13)                 |
 // | 18 | Where could you get chocolate?  | (21)                 |
 // | 19 | Entering your password          | (20)(10)             |
-// | 20 | Your only app is Music          | (22)(23)(24)(25)(10) |
+// | 20 | Your only app is Music          | (22)(23)(25)(--)(10) |
 // | 21 | Weighing the choices            | (26)(27)(28)         |
-// | 22 | The Sun is Dying (song)         | (20)                 |
-// | 23 | Look Through Me (song)          | (20)                 |
+// | 22 | The Sun is Dying (song)         | (20)                 | x
+// | 23 | Look Through Me (song)          | (20)                 | x
 // | 24 | Sometime is Anytime (song)      | (20)                 |
 // | 25 | Theme of the Haunted (song)     | (20)                 |
 // | 26 | Consider trick-or-treating      | (--)(21)             |
@@ -506,10 +528,10 @@ function changeScene(choice)
 // | 37 | You pick up Sodium Pop®         | (38)                 | x
 // | 38 | You look at Tissues®            | (39)                 | x
 // | 39 | Your aisle is a labyrinth       | (40)(41)             | x
-// | 40 | Aisle 7                         | (--)                 | x
-// | 41 | You go into the dungeon         | (--)(--)             |
+// | 40 | Aisle 7                         | (42)                 | x
+// | 41 | You go into the dungeon         | (21)(00)             | x
 // | 42 | At the counter without candy    | (40)                 |
-// | 43 |                                 |                      |
+// | 43 | You go to the counter with candy| (--)                 |
 // | 44 |                                 |                      |
 // | 45 |                                 |                      |
 // | 46 |                                 |                      |
@@ -520,4 +542,5 @@ function changeScene(choice)
 // 2. Trick-or-treating storyline
 // 3. Hunting storyline
 // 4. Songs (and whistling)
-// 5. Pictures
+// 5. Fix formatting for iPod
+// 6. Pictures
