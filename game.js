@@ -8,7 +8,7 @@ var tried = false;
 
 function changeScene(choice)
 {
-	end = ((scene==35||scene==36||scene==41)&&choice==2);
+	end = ((scene==35||scene==36||scene==41)&&choice==2)||scene==45||scene==46;
 	//The basic outline goes like this
 	if (scene == 0)
 	{
@@ -95,9 +95,9 @@ function changeScene(choice)
 		else if (choice==2&&scene!=19)
 		{
 			scene = 9;
-			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as \"The Sun is Dying and I'm Killing It\" and \"Look Through Me (You Can Do That Now)\" and decide upon the spookiest song of them all.</br>\"Theme of the Haunted\" by Craig A. Peters.</br></br>It goes a little like this.";
+			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as <i>The Sun is Dying and I'm Killing It</i> and <i>Look Through Me (You Can Do That Now)</i> and decide upon the spookiest song of them all.</br><i>Theme of the Haunted</i> by Craig A. Peters.</br></br>It goes a little like this.</br></br><iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/290910801%3Fsecret_token%3Ds-IWtEW&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe>";
 			changeValues1(' It sounded better in my head. ');
-			pic = "pics/9.png";
+			pic = "pics/2.png";
 		}
 		else if (choice==3||scene==20||scene==19)
 		{
@@ -124,7 +124,7 @@ function changeScene(choice)
 		{
 			scene = 19;
 			show(2);
-			message = "What was your password again? ";
+			message = "What was your <u>password</u> again? ";
 			changeValues1(' Enter Passcode ');
 			changeValues2(' Stop Attempting Password ');
 			showTextInput();
@@ -138,7 +138,7 @@ function changeScene(choice)
 			scene = 12;
 			message = "Suddenly, it hits you. You know exactly what you can do today.</br></br>Thousands of small, frightenable children will be walking the streets looking for candy under rocks and in mailboxes, and you can,</br>by golly, you can <b>JOIN</b> them.";
 			changeValues1(' This gives me purpose. ');
-			pic = "pics/12.png";
+			pic = "pics/2.png";
 		}
 	}
 	else if (scene==12||scene==14||scene==17)
@@ -151,7 +151,7 @@ function changeScene(choice)
 			show2(); show3();
 			changeValues2(' A single candy bar. ');
 			changeValues3(' A knuckle sandwich. ');
-			pic = "pics/13.png";
+			pic = "pics/2.png";
 		}
 	}
 	else if (scene==13)
@@ -160,10 +160,10 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 14;
-			message = "You think about it.</br></br>Turkey, covered in gravy. A whole ham, stuffed with ice cubes and oranges. Green peas, arranged in a perfect triangular pyramid. A framed picture of a hashbrown. All 4 courses, with fries on the side and Sodium Pop&reg served from a baseball cap.</br></br>But then again, you had that the night before last, and it's awkward to have the same thing twice in one week.";
+			message = "You think about it.</br></br>Turkey, covered in gravy. A whole ham, stuffed with ice cubes and oranges. Green peas, arranged in a perfect triangular pyramid. A framed picture of a hashbrown. All 4 courses, with fries on the side and Sodium Pop&reg served to taste.</br></br>But then again, you had that the night before last, and it's awkward to have the same thing twice in one week.";
 			changeValues1(' What else? ');
 			hide2();
-			pic = "pics/14.png";
+			pic = "pics/2.png";
 		}
 		else if(choice==2)
 		{
@@ -193,7 +193,7 @@ function changeScene(choice)
 			scene = 17;
 			message = "\"Enough of your talk!\", he shouts, before decking you square in the face. He scoffs at you, turns around, and goes back into his limousine.</br>The limousine ascends into Heaven.</br></br>You decide you didn't want a knuckle sandwich.";
 			changeValues1(' What else? ');
-			pic = "17.png";
+			pic = "pics/15.png";
 		}
 	}
 	else if(scene==16)
@@ -203,11 +203,11 @@ function changeScene(choice)
 			scene = 18;
 			hide2(); hide3();
 			message = "\"Alright, now where can a ghost find a single candy bar on Halloween?\", you think aloud. \"If only <i>someone</i> could get a candy bar for me. Man, how that'd be swell.\"</br>You look around.</br></br>This is going to be harder than you thought.";
-			pic = "18.png";
+			pic = "pics/2.png";
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18||(scene>=26&&scene<=28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
+	else if(scene==18||(scene>=26&&scene<=27&&choice==1)||(scene==28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
 	{
 		if(choice)
 		{
@@ -217,7 +217,7 @@ function changeScene(choice)
 			changeValues1(' I could go trick-or-treating ');
 			changeValues2(' I could hunt for one in the wild ');
 			changeValues3(' I could buy one in a store ');
-			pic = "21.png";
+			pic = "pics/2.png";
 		}
 	}
 	else if((scene==19||(scene>=22&&scene<=25))&&choice==1)
@@ -225,11 +225,11 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			var pass = getTextInput();
-			if(pass=="3323")
+			if(pass=="password")
 			{
 				scene = 20;
 				hide5();
-				message = "The only app you have on your phone is Music.</br></br>What songs do you want to listen to?";
+				message = "The only app you have on your phone is Music.</br></br>Which songs do you want to listen to?";
 				if(seeniPod==false) message = "Huh. It wasn't that before. Weird.</br></br>" + message;
 				seeniPod = true;
 				hideTextInput();
@@ -265,7 +265,7 @@ function changeScene(choice)
 		if(choice==2)
 		{
 			scene = 23;
-			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289671126&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br><i>Look Through Me (You Can Do That Now)</i> is one of the better songs by Albert Glass, off his 1981 album <i>Dear Lord, I'm a Ghost</i>. The song is kind of tainted for you because when you were in high school, and you were dating an old girlfriend of yours, it was <i>\"your song\"</i>, and eventually she left you for an invisible man that could fly, which in retrospect, is pretty ironic.";
+			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/290892607&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br><i>Look Through Me (You Can Do That Now)</i> is one of the better songs by Albert Glass, off his 1981 album <i>Dear Lord, I'm a Ghost</i>. The song is kind of tainted for you because when you were in high school, and you were dating an old girlfriend of yours, it was <i>\"your song\"</i>, and eventually she left you for an invisible man that could fly, which in retrospect, is pretty ironic.</br></br><i>(Album art by the wonderfully talented <a href=\"https://justin1909.tumblr.com/\">Justin</a>)</i>";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
 			pic = "pics/23.png";
@@ -281,7 +281,7 @@ function changeScene(choice)
 		if(choice==3)
 		{
 			scene = 25;
-			message = "[embedded music]</br></br><i>Theme of the Haunted</i> commentary";
+			message = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/290910057&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe></br></br><i>Theme of the Haunted</i> is the ultimate song for a ghost, or anyone else otherwise. Coming from the soundtrack to the hit 1994 thriller <i>Mr. Haunted</i>, this song quickly reached #1 on the Australian and American charts, and came in at #2 on the British charts. This theme has become so universal that playing it immediately evokes the scene it's from, which is where Mr. Haunted does his first haunting.</br></br><i>(Album art by the wonderfully talented <a href=\"https://aristaresident.tumblr.com/\">Simone</a>)</i>";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
 			pic = "pics/25.png";
@@ -292,20 +292,20 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 26;
-			show2(); hide3();
+			hide2(); hide3();
 			message = "Trick-or-treating. An ancient, sacred tradition where children wander the street alone, dressed in disguises, and beg the sky for candy. You remember when you would go trick-or-treating.</br>You used to have a neighbor, Mr. Simon. Every Halloween, you would break down his door and holler the Halloween Holler.</br></br><h3><i>\"HALLOWEEN, HALLOWEEN! I am in need of that sugar, so please throw some at me so that I can ingest it.\"</h3></i></br></br>Some years he would happily give it to you, and some years he would just cry.</br></br>If you decide to go through with this, it will eat up your night. Is it really the best way to get a candy bar?";
-			changeValues1(' Yep! ');
-			changeValues2(' Maybe something else... ');
-			pic = "pics/26.png";
+			//changeValues1(' Yep! ');
+			changeValues1(' Maybe something else... ');
+			pic = "pics/2.png";
 		}
 		else if(choice==2)
 		{
 			scene = 27;
-			show2(); hide3();
+			hide2(); hide3();
 			message = "Ahh yes! The hunt!</br>You think back to when your grandfather used to tell you stories of the hunt. You can hear his crooked old voice now.</br></br><h3><i>\"Sonny, back in the day, I used to go on the hunt. Once, I was in the mall on an escalator, and I saw a huge elephant at the bottom! What a prize she was.</br>I readied my harpoon, put my nose between the crosshairs, and shot right at the ceiling. A chandelier fell from directly above her, and I took her home. What a great meal.\"</h3></i></br></br>Society has come a long way since your grandfather used to poach elephants to eat whole. Are you sure you want to go on the hunt for your candy bar?";
-			changeValues1(' Yep! ');
-			changeValues2(' Maybe I\'ll do something else... ');
-			pic = "pics/27.png";
+			//changeValues1(' Yep! ');
+			changeValues1(' Maybe I\'ll do something else... ');
+			pic = "pics/2.png";
 		}
 		else if(choice==3)
 		{
@@ -314,10 +314,10 @@ function changeScene(choice)
 			message = "Consumerism, one of the most cherished traditions in life. You enjoy going to stores, which are large prisons where products live. In fact, you just went to a store the other day.</br>You wanted to buy more peas to arrange into a pyramid, and you became immediately perplexed by the vast array of things the store sold. Diapers, playing cards, lightbulbs, you name it. They had nearly everything, except the little part of your soul that you lost wandering the aisles for days.</br>Actually they did have that, but you forgot your coupon at home.</br></br>Are you sure that you want to go to the proud institution that is a store?";
 			changeValues1(' Yep! ');
 			changeValues2(' Maybe something else... ');
-			pic = "pics/28.png";
+			pic = "pics/2.png";
 		}
 	}
-	else if(scene==28)
+	else if(scene==28&&choice==1)
 	{
 		if(choice==1)
 		{
@@ -375,7 +375,7 @@ function changeScene(choice)
 			scene = 34;
 			hide(2);
 			message = "You stare at Richard dreamily, and behind his face, you can tell he's staring back at you.</br>You've never felt this way, not even that time when you feel in love with the moon. The moon didn't love you back, but you feel Richard would at least give it a try.</br></br>You ask Richard on a date, and he says yes.";
-			pic = "pics/34.png";
+			pic = "pics/31.png";
 			changeValues(1, ' Grow old together ');
 		}
 	}
@@ -385,7 +385,7 @@ function changeScene(choice)
 		{
 			scene = 36;
 			message = "Your world becomes a spiraling mess of <i>\"where did Richard go?\"</i>, <i>\"what do I do without Richard?\"</i>, and <i>\"Richardless life? How can that be?\"</i></br>You fall on the ground, crying more than any ghost has ever cried. The staff at DrugPlace&reg kicks you out after an hour.</br></br>You try and regather your life, but nothing is ever the same. When you look in a mirror, you see Richard instead of the nothingness most ghosts see in mirrors. You try and recall all the tender words he ever said to you, but it's nothing compared to the real deal.</br></br>You do not get a candy bar. You lose.";
-			pic = "pics/36.png";
+			pic = "pics/36.gif";
 			changeValues(1, ' Start from Checkpoint ');
 			changeValues(2, ' Restart Game ');
 		}
@@ -443,9 +443,9 @@ function changeScene(choice)
 	{
 		if(choice)
 		{
-			scene=39;
+			scene = 39;
 			pic = "pics/39.png";
-			show(2);
+			show2();
 			message = "Wait a minute.</br>You just realized, you have no idea where you are. You look behind you and can't see the end of the aisle. You turn around again and swear that's a different exit than you just saw. You look up and there is a ceiling, but it's dark and musty.</br>Here you are, stuck in the bowels of DrugPlace&reg, with no exit in sight. It's last Tuesday through Thursday all over again.</br></br>Your thinking clears. You need a candy bar. This is a mission. You somehow reach the end of the aisle. Where should you go?";
 			changeValues1(' To Another Aisle ');
 			changeValues2(' To the Mysterious Dungeon at the end of the aisle ');
@@ -467,9 +467,44 @@ function changeScene(choice)
 		if(choice)
 		{
 			scene = 43;
-			pic = "pics/43.png";
+			pic = "pics/42.png";
+			show2();
 			message = "\"Howdy!\", shouts Richard. \"Are you ready to officially own your candy bar?\"</br>You walk closer to the counter, which is where Richard is putting other people's money in boxes. You're not sure whether you remember how to purchase items.</br></br>\"Don't worry,\" Richard responds, because he can read your mind. \"Purchasing an item is simple. First, you hand me the item.\"";
-			changeValues(' Hand him the candy bar ');
+			changeValues1(' Hand him the candy bar ');
+			changeValues2(' Run away with the candy bar ');
+		}
+	}
+	else if(scene==43)
+	{
+		if(choice==1)
+		{
+			scene = 44;
+			pic = "pics/42.png";
+			show3();show4();
+			message = "\"Next, I put both your candy bar and your money in seperate boxes. If you can correctly guess which box has your candy bar in it, then you get your candy bar.\"";
+			changeValues1(' "Left" ');
+			changeValues2(' "Right" ');
+			changeValues3(' "Wait, your left or my left?" ');
+			changeValues4(' "The one with the candy" ');
+		}
+		else if(choice==2)
+		{
+			scene = 45;
+			pic = "pics/45.png";
+			hide3();hide4();hide2();
+			message = "You run out the door really quickly with an illegally obtained Sir Goodtaste. You hear Richard yelling behind you, but you have no idea what he's saying. You run faster and faster, and your legs become lightning and your mind becomes speed. Some number of miles away from DrugPlace&reg, you decide to rest, so you sit down on a rock.</br>As you sit down, a trap springs on you, and a police officer arrests you. You go to court, and are sentenced to life in prison, and since you're already dead, that means all eternity.</br></br>You spend all of eternity in a jail cell, <b>but you still got the candy bar. You win!";
+			changeValues1(' Restart Game ');
+		}
+	}
+	else if(scene==44)
+	{
+		if(choice)
+		{
+			scene = 46;
+			pic = "pics/16.png";
+			hide3();hide4();hide2();
+			message = "\"That's right!\", cries Richard. Tears stream down your face. He hands you the candy bar.</br><i>\"Sir Goodtaste\"</i>, you mutter. <i>\"I have never been happier.\"</i></br></br>You leave with the candy bar in your hand. The two of you live happily ever after, or rather, you do, because you eat Sir Goodtaste immediately.</br></br><b>You have obtained one candy bar. You win!</b>";
+			changeValues1(' Restart Game ');
 		}
 	}
 	else if(end)
@@ -497,50 +532,48 @@ function changeScene(choice)
 // | 06 | Disappearing death              | (07)                 | x   |
 // | 07 | What do you do next?            | (08)(09)(10)         | x   |
 // | 08 | Grass Inspection                | (07)                 | x   |
-// | 09 | Whistling a song                | (07)                 |     |
+// | 09 | Whistling a song                | (07)                 | x   |
 // | 10 | Looking at your iPod            | (11)(19)             | x   |
 // | 11 | You notice the date!            | (12)                 | x   |
-// | 12 | You know what to do             | (13)                 |     |
-// | 13 | What should you eat?            | (14)(16)(15)         |     |
+// | 12 | You know what to do             | (13)                 | x   |
+// | 13 | What should you eat?            | (14)(16)(15)         | x   |
 // | 14 | A 4-course meal                 | (13)                 |     |
 // | 15 | Joe Biden shows up              | (17)(17)             | x   |
 // | 16 | Chocolate vision                | (18)(18)(18)         | x   |
-// | 17 | Joe Biden punches you           | (13)                 |     |
-// | 18 | Where could you get chocolate?  | (21)                 |     |
+// | 17 | Joe Biden punches you           | (13)                 | x   |
+// | 18 | Where could you get chocolate?  | (21)                 | x   |
 // | 19 | Entering your password          | (20)(10)             | x   |
 // | 20 | Your only app is Music          | (22)(23)(25)(10)     | x   |
-// | 21 | Weighing the choices            | (26)(27)(28)         |     |
+// | 21 | Weighing the choices            | (26)(27)(28)         | x   |
 // | 22 | The Sun is Dying (song)         | (20)                 | x   |
 // | 23 | Look Through Me (song)          | (20)                 | x   |
 // | 24 | Sometime is Anytime (song)      | (20)                 |     |
 // | 25 | Theme of the Haunted (song)     | (20)                 | x   |
-// | 26 | Consider trick-or-treating      | (--)(21)             |     |
-// | 27 | Consider hunting                | (--)(21)             |     |
+// | 26 | Consider trick-or-treating      | (21)                 |     |
+// | 27 | Consider hunting                | (21)                 |     |
 // | 28 | Consider going to a store       | (29)(21)             |     |
 // | 29 | You arrive at DrugPlace®        | (30)(30)             | x   |
 // | 30 | Richard's introduction          | (31)(32)             | x   |
 // | 31 | Richard tells you the aisle     | (33)(34)             | x   |
 // | 32 | Richard leaves you alone        | (36)(37)             | x   |
 // | 33 | Richard goes to the counter     | (40)(37)(42)         | x   |
-// | 34 | You fall in love with Richard   | (35)                 |     |
-// | 35 | You grow old with Richard       | (21)(00)             |     |
-// | 36 | You live your life without him  | (21)(00)             |     |
+// | 34 | You fall in love with Richard   | (35)                 | x   |
+// | 35 | You grow old with Richard       | (21)(00)             | x   |
+// | 36 | You live your life without him  | (21)(00)             | x   |
 // | 37 | You pick up Sodium Pop®         | (38)                 | x   |
 // | 38 | You look at Tissues®            | (39)                 | x   |
 // | 39 | Your aisle is a labyrinth       | (40)(41)             | x   |
 // | 40 | Aisle 7                         | (42)                 | x   |
 // | 41 | You go into the dungeon         | (21)(00)             | x   |
-// | 42 | At the counter without candy    | (40)                 |     |
-// | 43 | You go to the counter with candy| (--)                 |     |
-// | 44 |                                 |                      |     |
-// | 45 |                                 |                      |     |
-// | 46 |                                 |                      |     |
+// | 42 | At the counter without candy    | (40)                 | x   |
+// | 43 | You go to the counter with candy| (44)(45)             | x   |
+// | 44 | Guess which box it's in         | (46)(46)(46)(46)     | x   |
+// | 45 | You rot in jail forever         | (00)                 | x   |
+// | 46 | You successfully buy a candy bar| (00)                 | x   |
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT
 // 1. End of store storyline
 // 2. Trick-or-treating storyline
 // 3. Hunting storyline
-// 4. Songs (and whistling)
-// 5. Fix formatting for iPod
 // 6. Pictures
