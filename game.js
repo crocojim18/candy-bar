@@ -1,4 +1,4 @@
-﻿var scene = 0;
+﻿var scene = 46;
 var pic = "pics/0.png";
 var seeniPod = false;
 var end = false;
@@ -512,6 +512,7 @@ function changeScene(choice)
 		scene = 0;
 		hide(2);hide(3);hide(4);hide(5);
 		message = "<p><h1>Can You Obtain One Candy Bar?</h1></p><p><h2>a choose-your-own-adventure game by Marty Taylor</h2></p>";
+		if(beDebug()) message = message + "</br><i>(Welcome to debug mode!)</i>";
 		pic = "pics/0.png";
 	}
 	

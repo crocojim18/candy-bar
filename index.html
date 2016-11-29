@@ -3,6 +3,16 @@
 		<title>Can You Obtain One Candy Bar?</title>
 		<script type="text/javascript" src="functions.js"></script>
 		<script type="text/javascript" src="game.js"></script>
+		<script type="text/javascript">
+
+			function beDebug()
+			{
+				var param = location.search;
+				if(param==="?debug") return true;
+				return false;
+			}
+
+		</script>
 
 		<style>
 			#wrapper{width: 650px; margin: 0px auto;}
@@ -10,7 +20,7 @@
 		</style>
 	</head>
 
-	<body onLoad="hide2();hide3();hide4();hide5();hideTextInput();">
+	<body onLoad="changeScene(1);hide2();hide3();hide4();hide5();hideTextInput();">
 		<div id="wrapper">
         	<div id="content">
             
@@ -24,7 +34,7 @@
                 
             </div>
 				<center></br>
-                	<div id="scenetext"><p><h1>Can You Obtain One Candy Bar?</h1></p><p><h2>a choose-your-own-adventure game by Marty Taylor</h2></p></div>
+                	<div id="scenetext"></div>
 					</br>
 					<div id="textInputSection">
 						<input type="text" id="textInput" />
