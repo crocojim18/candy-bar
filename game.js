@@ -207,7 +207,7 @@ function changeScene(choice)
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18||(scene>=26&&scene<=27&&choice==1)||(scene==28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
+	else if(scene==18||(scene>=26&&scene<=27&&(choice==2||(choice==1&&!isDebug())))||(scene==28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
 	{
 		if(choice)
 		{
@@ -294,8 +294,13 @@ function changeScene(choice)
 			scene = 26;
 			hide2(); hide3();
 			message = "Trick-or-treating. An ancient, sacred tradition where children wander the street alone, dressed in disguises, and beg the sky for candy. You remember when you would go trick-or-treating.</br>You used to have a neighbor, Mr. Simon. Every Halloween, you would break down his door and holler the Halloween Holler.</br></br><h3><i>\"HALLOWEEN, HALLOWEEN! I am in need of that sugar, so please throw some at me so that I can ingest it.\"</h3></i></br></br>Some years he would happily give it to you, and some years he would just cry.</br></br>If you decide to go through with this, it will eat up your night. Is it really the best way to get a candy bar?";
-			//changeValues1(' Yep! ');
-			changeValues1(' Maybe something else... ');
+			if(isDebug())
+			{
+				changeValues1(' Yep! ');
+				show2();
+				changeValues2(' Maybe something else... ');
+			}
+			else changeValues1(' Maybe something else... ');
 			pic = "pics/2.png";
 		}
 		else if(choice==2)
@@ -303,8 +308,13 @@ function changeScene(choice)
 			scene = 27;
 			hide2(); hide3();
 			message = "Ahh yes! The hunt!</br>You think back to when your grandfather used to tell you stories of the hunt. You can hear his crooked old voice now.</br></br><h3><i>\"Sonny, back in the day, I used to go on the hunt. Once, I was in the mall on an escalator, and I saw a huge elephant at the bottom! What a prize she was.</br>I readied my harpoon, put my nose between the crosshairs, and shot right at the ceiling. A chandelier fell from directly above her, and I took her home. What a great meal.\"</h3></i></br></br>Society has come a long way since your grandfather used to poach elephants to eat whole. Are you sure you want to go on the hunt for your candy bar?";
-			//changeValues1(' Yep! ');
-			changeValues1(' Maybe I\'ll do something else... ');
+			if(isDebug())
+			{
+				changeValues1(' Yep! ');
+				show2();
+				changeValues2(' Maybe I\'ll do something else... ');
+			}
+			else changeValues1(' Maybe I\'ll do something else... ');
 			pic = "pics/2.png";
 		}
 		else if(choice==3)
@@ -315,6 +325,27 @@ function changeScene(choice)
 			changeValues1(' Yep! ');
 			changeValues2(' Maybe something else... ');
 			pic = "pics/2.png";
+		}
+	}
+	else if(scene==26&&isDebug())
+	{
+		if(choice==1)
+		{
+			scene = 47;
+			hide1(); hide2(); hide3();
+			message = "Presumably something about trick-or-treating will go here";
+			pic = "pics/demo.png";
+		}
+	}
+	else if(scene==27&&isDebug())
+	{
+		if(choice==1)
+		{
+			scene = 48;
+			hide1(); hide2(); hide3();
+			message = "Presumably something about hunting for candy in the wild";
+			changeValues1(' Yep! ');
+			pic = "pics/demo.png";
 		}
 	}
 	else if(scene==28&&choice==1)
@@ -512,7 +543,7 @@ function changeScene(choice)
 		scene = 0;
 		hide(2);hide(3);hide(4);hide(5);
 		message = "<p><h1>Can You Obtain One Candy Bar?</h1></p><p><h2>a choose-your-own-adventure game by Marty Taylor</h2></p>";
-		if(beDebug()) message = message + "</br><i>(Welcome to debug mode!)</i>";
+		if(isDebug()) message = message + "</br><i>(Welcome to debug mode!)</i>";
 		pic = "pics/0.png";
 	}
 	
@@ -550,8 +581,8 @@ function changeScene(choice)
 // | 23 | Look Through Me (song)          | (20)                 | x   |
 // | 24 | Sometime is Anytime (song)      | (20)                 |     |
 // | 25 | Theme of the Haunted (song)     | (20)                 | x   |
-// | 26 | Consider trick-or-treating      | (21)                 |     |
-// | 27 | Consider hunting                | (21)                 |     |
+// | 26 | Consider trick-or-treating      | (21)(*47*)           |     |
+// | 27 | Consider hunting                | (21)(*48*)           |     |
 // | 28 | Consider going to a store       | (29)(21)             |     |
 // | 29 | You arrive at DrugPlace®        | (30)(30)             | x   |
 // | 30 | Richard's introduction          | (31)(32)             | x   |
@@ -571,10 +602,13 @@ function changeScene(choice)
 // | 44 | Guess which box it's in         | (46)(46)(46)(46)     | x   |
 // | 45 | You rot in jail forever         | (00)                 | x   |
 // | 46 | You successfully buy a candy bar| (00)                 | x   |
+// | 47 | **Trick-or-treating subbranch** |                      |     |
+// | 48 | **Candy hunting subbranch**     |                      |     |
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT
-// 1. End of store storyline
-// 2. Trick-or-treating storyline
-// 3. Hunting storyline
-// 6. Pictures
+// 1. Debugging mode
+// 2. End of store storyline
+// 3. Trick-or-treating storyline
+// 4. Hunting storyline
+// 5. Pictures

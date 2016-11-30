@@ -5,13 +5,17 @@
 		<script type="text/javascript" src="game.js"></script>
 		<script type="text/javascript">
 
-			function beDebug()
+			function isDebug()
 			{
 				var param = location.search;
-				if(param==="?debug") return true;
+				if(param==="?debug")
+				{
+					changeBackgroundColor("#cd4040");
+					return true;
+				}
 				return false;
 			}
-
+			
 		</script>
 
 		<style>
@@ -20,7 +24,7 @@
 		</style>
 	</head>
 
-	<body onLoad="changeScene(1);hide2();hide3();hide4();hide5();hideTextInput();">
+	<body onLoad="changeScene(1);hide2();hide3();hide4();hide5();hideTextInput();changeTextColor('#414141')">
 		<div id="wrapper">
         	<div id="content">
             
