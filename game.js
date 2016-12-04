@@ -332,8 +332,11 @@ function changeScene(choice)
 		if(choice==1)
 		{
 			scene = 47;
-			hide1(); hide2(); hide3();
-			message = "Presumably something about trick-or-treating will go here";
+			show1(); show2(); show3(); hide4();
+			message = "Awesome!</br>You go up to the street, and there are already small children gathering by the hundreds on the sidewalk. Many of them are getting a headstart, looking for candy in the crooks of trees and underneath patches of grass. Some others are already hollering the Halloween Holler. You join in for a verse or two, for old time's sake. However, you remember you're on a mission.</br>How do you find a certain Mr. Sir Goodtaste?";
+			changeValues1(' Talk to some of the children ');
+			changeValues2(' Silently stand amongst the children ');
+			changeValues3(' Pass the children up and go knock on a door ');
 			pic = "pics/demo.png";
 		}
 	}
@@ -405,7 +408,7 @@ function changeScene(choice)
 		{
 			scene = 34;
 			hide(2);
-			message = "You stare at Richard dreamily, and behind his face, you can tell he's staring back at you.</br>You've never felt this way, not even that time when you feel in love with the moon. The moon didn't love you back, but you feel Richard would at least give it a try.</br></br>You ask Richard on a date, and he says yes.";
+			message = "You stare at Richard dreamily, and behind his face, you can tell he's staring back at you.</br>You've never felt this way, not even that time when you fell in love with the moon. The moon didn't love you back, but you feel Richard would at least give it a try.</br></br>You ask Richard on a date, and he says yes.";
 			pic = "pics/31.png";
 			changeValues(1, ' Grow old together ');
 		}
@@ -538,6 +541,35 @@ function changeScene(choice)
 			changeValues1(' Restart Game ');
 		}
 	}
+	else if(scene==47)
+	{
+		if(choice==1)
+		{
+			scene = 49;
+			hide2(); hide3(); hide4();
+			message = "\"Hi! My name is Boxer McClearly, and I am a child, no older than 7. This Halloween, I decided to dress up as Fjeldenstern's Monster, which is a large man made of other men. His father put his collection of dead men parts in a storm, and they were struck by lightning, and became alive. He named his monster after himself, because he was selfish like that. Very soon, the monster decided he would be better off alone and bought a timeshare off the coast of Malta. He's still there to this day, living with his wife and 4 children.</br>I chose this costume because of the moral of the story: sometimes we all need to run away and start new lives.\"";
+			changeValues1(' "Wow, that\'s amazing." ');
+			pic = "pics/49.png";
+		}
+		else if(choice==2)
+		{
+			scene = 50;
+			hide2(); hide3(); hide4();
+			message = "You sit there soaking in the chanting, screaming, and sobbing of the children around you. They really want their candy this year.</br></br>You look down the road, and they've already torn down a statue of the mayor, and are reading a list of demands:<ol type=\"A\"><li>Sugary drinks, such as a refreshing Sodium Pop&reg</li><li>The right to knock on a person's door and have candy thrown at them</li><li>Decreased regulations on what costumes can be worn</li><li>The ability to vote and overthrow the government at whim</li><li>A single candy bar for each citizen</li></ol></br></br>Hey, listen to that! They want a free candy bar for every citizen! Now <i>that's</i> a cause you can get behind!";
+			changeValues1(' Protest with them ');
+			pic = "pics/demo.png";
+		}
+		else if(choice==3)
+		{
+			scene = 51;
+			show2(); show3(); hide4();
+			message = "Do go up to the closest house and a strange man opens the door.</br></br>\"Ahh, a trick-or-treater, I see! That's a very nice ghost costume you have there!\"";
+			changeValues1(' "Thank you! I\'m actually dead." ');
+			changeValues2(' "Do you happen to have a single candy bar?" ');
+			changeValues3(' "Shut up, Mr. Strangerman. Give me a single candy bar." ');
+			pic = "pics/demo.png";
+		}
+	}
 	else if(end)
 	{
 		scene = 0;
@@ -602,8 +634,11 @@ function changeScene(choice)
 // | 44 | Guess which box it's in         | (46)(46)(46)(46)     | x   |
 // | 45 | You rot in jail forever         | (00)                 | x   |
 // | 46 | You successfully buy a candy bar| (00)                 | x   |
-// | 47 | **Trick-or-treating subbranch** |                      |     |
+// | 47 | **Trick-or-treating subbranch** | (49)(50)(51)         |     |
 // | 48 | **Candy hunting subbranch**     |                      |     |
+// | 49 | Talk to some of the children    | (52)                 | x   |
+// | 50 | Stand quietly along the children| 
+// | 51 | Go knock on a door              | 
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT
