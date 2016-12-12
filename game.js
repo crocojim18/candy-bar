@@ -196,7 +196,7 @@ function changeScene(choice)
 			pic = "pics/15.png";
 		}
 	}
-	else if(scene==16)
+	else if(scene==165000)
 	{
 		if(choice)
 		{
@@ -207,7 +207,7 @@ function changeScene(choice)
 			changeValues1(' Okay, fine, I\'ll work for it ');
 		}
 	}
-	else if(scene==18||(scene>=26&&scene<=27&&(choice==2||(choice==1&&!isDebug())))||(scene==28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
+	else if(scene==16||(scene>=26&&scene<=27&&(choice==2||(choice==1&&!isDebug())))||(scene==28&&choice==2)||((scene==35||scene==36||scene==41)&&choice==1))
 	{
 		if(choice)
 		{
@@ -276,7 +276,7 @@ function changeScene(choice)
 			message = "[embedded music]</br></br><i>Sometime is Anytime with All Time</i> commentary";
 			hide2(); hide3(); hide4();hide5();
 			changeValues1(' Go back to songs ');
-			pic = "pics/24.png";
+			pic = "pics/demo.png";
 		}
 		if(choice==3)
 		{
@@ -575,10 +575,14 @@ function changeScene(choice)
 		scene = 0;
 		hide(2);hide(3);hide(4);hide(5);
 		message = "<p><h1>Can You Obtain One Candy Bar?</h1></p><p><h2>a choose-your-own-adventure game by Marty Taylor</h2></p>";
-		if(isDebug()) message = message + "</br><i>(Welcome to debug mode!)</i>";
+		if(isDebug())
+		{
+			message = message + "</br><i>(Welcome to debug mode!)</i>";
+		}
 		pic = "pics/0.png";
 	}
-	
+
+	document.getElementById("placeNumber").innerHTML = "<i>(" + scene + ")</i></br>";	
 	document.getElementById("scenetext").innerHTML = message;
 	document.getElementById("sceneimg").src = pic;
 
@@ -603,7 +607,7 @@ function changeScene(choice)
 // | 13 | What should you eat?            | (14)(16)(15)         | x   |
 // | 14 | A 4-course meal                 | (13)                 |     |
 // | 15 | Joe Biden shows up              | (17)(17)             | x   |
-// | 16 | Chocolate vision                | (18)(18)(18)         | x   |
+// | 16 | Chocolate vision                | (21)(21)(21)         | x   |
 // | 17 | Joe Biden punches you           | (13)                 | x   |
 // | 18 | Where could you get chocolate?  | (21)                 | x   |
 // | 19 | Entering your password          | (20)(10)             | x   |

@@ -5,12 +5,18 @@
 		<script type="text/javascript" src="game.js"></script>
 		<script type="text/javascript">
 
+			function hideDebug()
+			{
+				document.getElementById("debugInputSection").style.display="none";
+			}
+
 			function isDebug()
 			{
 				var param = location.search;
 				if(param==="?debug")
 				{
 					changeBackgroundColor("#cd4040");
+					document.getElementById("debugInputSection").style.display="block";
 					return true;
 				}
 				return false;
@@ -24,7 +30,7 @@
 		</style>
 	</head>
 
-	<body onLoad="changeScene(1);hide2();hide3();hide4();hide5();hideTextInput();changeTextColor('#414141')">
+	<body onLoad="hide2();hide3();hide4();hide5();hideTextInput();changeTextColor('#414141');hideDebug();changeScene(1);">
 		<div id="wrapper">
         	<div id="content">
             
@@ -53,6 +59,19 @@
 					<input type="button" id="choice4" value="" onClick="changeScene(4);">
 					</br>
 					<input type="button" id="choice5" value="" onClick="changeScene(5);">
+					<div id="debugInputSection">
+						</br>
+						<div id="placeNumber"></div>
+						<i>Scene Number</i>
+						</br>
+						<input type="text" id="sceneInput" />
+						</br>
+						<i>Choice Number</i>
+						</br>
+						<input type="text" id="choiceInput" />
+						</br>
+						<input type="button" value="Enter" onclick="scene=parseInt(document.getElementById('sceneInput').value);changeScene(parseInt(document.getElementById('choiceInput').value))">
+					</div>
 				</center>
 		</div>
 	</body>
