@@ -555,7 +555,7 @@ function changeScene(choice)
 		{
 			scene = 50;
 			hide2(); hide3(); hide4();
-			message = "You sit there soaking in the chanting, screaming, and sobbing of the children around you. They really want their candy this year.</br></br>You look down the road, and they've already torn down a statue of the mayor, and are reading a list of demands:<ol type=\"A\"><li>Sugary drinks, such as a refreshing Sodium Pop&reg</li><li>The right to knock on a person's door and have candy thrown at them</li><li>Decreased regulations on what costumes can be worn</li><li>The ability to vote and overthrow the government at whim</li><li>A single candy bar for each citizen</li></ol></br></br>Hey, listen to that! They want a free candy bar for every citizen! Now <i>that's</i> a cause you can get behind!";
+			message = "You sit there soaking in the chanting, screaming, and sobbing of the children around you. They really want their candy this year.</br></br>You look down the road, and they've already torn down a statue of the mayor, and are reading a list of demands:<div style=\"margin-left: 2em;\"><ol type=\"A\"><li>Sugary drinks, such as a refreshing Sodium Pop&reg</li><li>The right to knock on a person's door and have candy thrown at them</li><li>Decreased regulations on what costumes can be worn</li><li>The ability to vote and overthrow the government at whim</li><li>A single candy bar for each citizen</li></ol></div></br></br>Hey, listen to that! They want a free candy bar for every citizen! Now <i>that's</i> a cause you can get behind!";
 			changeValues1(' Protest with them ');
 			pic = "pics/demo.png";
 		}
@@ -570,6 +570,26 @@ function changeScene(choice)
 			pic = "pics/demo.png";
 		}
 	}
+	else if(scene==49)
+	{
+		if(choice)
+		{
+			scene = 52;
+			message = "\"Hello, stranger! My name is Muchlove Henrolds, and people say I am 10. This Halloween, I am dressing up as the famous Countess Darkella. The Countess was a woman from Bulgaria who liked living in the mountains and drinking milkshakes. One day, she decided that after drinking nothing but milkshakes for 5 years, that she wanted something different and exotic. She tried all sorts of liquids - vinegar, gasoline, regular milk - but she could never find anything to quench her thirst. Then one night while she was alone, she pricked her finger and realized what she wanted: blood. So she went around her town asking people for any spare bags of blood, and then those people realized they wanted bags of blood, and then <i>those</i> people wanted bags of blood, and so on. And that's why Countess Darkella is known for singlehandedly starting the Bulgarian Blood Economy.</br>I wore this costume in honor of my grandmother, who was a bag of blood.\"";
+			changeValues1(' "What a fitting tribute." ');
+			pic = "pics/52.png";
+		}
+	}
+	else if(scene==52)
+	{
+		if(choice)
+		{
+			scene = 53;
+			message = "Greetings, my name is Bawlby Biznar, and when I woke up this morning, I was 6 years old, a year younger than yesterday. This year I've dressed up as the sacred Halloween icon Jack, the Lantern. Jack, the Lantern, is a pumpkin who has confused himself by reading a lot of philosohpy. He thinks he is a man, but when he looks in the mirror, he only sees a pumpkin. He has carved a face into his flesh in order to look more like a man, but people still treat him like a lowly pumpkin. In order to draw attention to himself, he sets his internal organs on fire, but all people say is, <i>\"Why does this pumpkin have a face and smell like fire?\"</i></br>It depresses him a lot, but every Halloween I dress up like him so I too can feel pain.\"";
+			changeValues1(' "That\'s very noble of you." ');
+			pic = "pics/53.png";
+		}
+	}
 	else if(end)
 	{
 		scene = 0;
@@ -579,6 +599,7 @@ function changeScene(choice)
 		{
 			message = message + "</br><i>(Welcome to debug mode!)</i>";
 		}
+		changeValues1(' Begin ');
 		pic = "pics/0.png";
 	}
 
@@ -640,9 +661,11 @@ function changeScene(choice)
 // | 46 | You successfully buy a candy bar| (00)                 | x   |
 // | 47 | **Trick-or-treating subbranch** | (49)(50)(51)         |     |
 // | 48 | **Candy hunting subbranch**     |                      |     |
-// | 49 | Talk to some of the children    | (52)                 | x   |
-// | 50 | Stand quietly along the children| 
-// | 51 | Go knock on a door              | 
+// | 49 | Fjeldenstern's monster          | (52)                 | x   |
+// | 50 | Stand quietly along the children| ()                   |     |
+// | 51 | Go knock on a door              | ()                   |     |
+// | 52 | Countess Darkella               | (53)                 | x   |
+// | 53 | Jack, the Lantern               | ()                   | x   |
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT
