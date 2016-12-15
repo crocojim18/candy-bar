@@ -16,7 +16,7 @@ function changeScene(choice)
 		{
 			scene = 1;
 			message = "Birds are chirping. Light streams on your face. You begin to wake up.";
-			changeValues1(' Where am I? ');
+			changeValues1(' "Where am I?" ');
 			pic = "pics/1.gif";
 		}
 	}
@@ -27,7 +27,7 @@ function changeScene(choice)
 
 			scene = 2;
 			message = "Oh.</br>Well, look at that. It looks like you're dead. That's definitely your gravestone.";
-			changeValues1(' Bummer. ');
+			changeValues1(' "Bummer." ');
 			pic = "pics/2.png";
 		}
 	}
@@ -37,10 +37,10 @@ function changeScene(choice)
 		{
 			scene = 3;
 			message = "You try and recollect how you died.";
-			changeValues1(' Ahh yes, it was dangerous! ');
+			changeValues1(' "Ahh yes, it was dangerous!" ');
 			show2(); show3();
-			changeValues2(' Ahh yes, it was exciting! ');
-			changeValues3(' Ahh yes, it was very monotonous. ');
+			changeValues2(' "Ahh yes, it was exciting!" ');
+			changeValues3(' "Ahh yes, it was very monotonous." ');
 			pic = "pics/3.png";
 		}
 	}
@@ -51,21 +51,21 @@ function changeScene(choice)
 		{
 			scene = 4;
 			message = "You remember how you died. You were balancing two sharks on their noses while tight-roping over a canyon blindfolded.</br>You thought you could counteract it by tight-roping over Life Valley, Death Valley's evil twin cousin, but alas, that tanked bigtime.";
-			changeValues1(' It was worth a shot! ');
+			changeValues1(' "It was worth a shot!" ');
 			pic = "pics/4.png";
 		}
 		else if (choice==2)
 		{
 			scene = 5;
 			message = "You remember in your last moments you were waterskiing at 7% the speed of light. However, the boat pulling you crashed into a rock, and you fell deep into the water. An octopus offered you a danish, which you accepted, but it was poisoned and you died. It was a good danish.</br></br>But you learned your lesson that day. That's the last time you waterski while it's cloudy.";
-			changeValues1(' Lesson learned. ');
+			changeValues1(' "Lesson learned." ');
 			pic = "pics/5.png";
 		}
 		else if (choice==3)
 		{
 			scene = 6;
 			message = "You had just gotten home from work, when you sat down on the couch. You stared at the TV blankly for hours until you slowly faded away.";
-			changeValues1(' Yeah, that was a hard time. ');
+			changeValues1(' "Yeah, that was a hard time." ');
 			pic = "pics/6.gif";
 		}
 	}
@@ -96,14 +96,14 @@ function changeScene(choice)
 		{
 			scene = 9;
 			message = "You try and think of a good song for a ghost to whistle. You toss around perennial favorites, such as <i>The Sun is Dying and I'm Killing It</i> and <i>Look Through Me (You Can Do That Now)</i> and decide upon the spookiest song of them all.</br><i>Theme of the Haunted</i> by Craig A. Peters.</br></br>It goes a little like this.</br></br><iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/290910801%3Fsecret_token%3Ds-IWtEW&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false\"></iframe>";
-			changeValues1(' It sounded better in my head. ');
+			changeValues1(' "It sounded better in my head." ');
 			pic = "pics/2.png";
 		}
 		else if (choice==3||scene==20||scene==19)
 		{
 			scene = 10;
 			message = "You idly look at your iPod for some suggestion of what to do, but you forget your password.";
-			changeValues1(' Wait a minute, I noticed something! ');
+			changeValues1(' "Wait a minute, I noticed something!" ');
 			show2();
 			if (seeniPod!=true) changeValues2(' Try and figure out the password. ');
 			else changeValues2(' Enter your password ');
@@ -117,7 +117,7 @@ function changeScene(choice)
 		{
 			scene = 11;
 			message = "You notice the date! It's Halloween!</br>You love Halloween, and you can't believe it. You haven't felt this happy since the time your father left you in an abandoned bowling alley and you got to name all the pins.";
-			changeValues1(' Those were good times. ');
+			changeValues1(' "Those were good times." ');
 			pic = "pics/11.png";
 		}
 		else if (choice==2)
@@ -137,7 +137,7 @@ function changeScene(choice)
 		{
 			scene = 12;
 			message = "Suddenly, it hits you. You know exactly what you can do today.</br></br>Thousands of small, frightenable children will be walking the streets looking for candy under rocks and in mailboxes, and you can,</br>by golly, you can <b>JOIN</b> them.";
-			changeValues1(' This gives me purpose. ');
+			changeValues1(' "This gives me purpose." ');
 			pic = "pics/2.png";
 		}
 	}
@@ -161,7 +161,7 @@ function changeScene(choice)
 		{
 			scene = 14;
 			message = "You think about it.</br></br>Turkey, covered in gravy. A whole ham, stuffed with ice cubes and oranges. Green peas, arranged in a perfect triangular pyramid. A framed picture of a hashbrown. All 4 courses, with fries on the side and Sodium Pop&reg served to taste.</br></br>But then again, you had that the night before last, and it's awkward to have the same thing twice in one week.";
-			changeValues1(' What else? ');
+			changeValues1(' "What else?" ');
 			hide2();
 			pic = "pics/2.png";
 		}
@@ -192,7 +192,7 @@ function changeScene(choice)
 		{
 			scene = 17;
 			message = "\"Enough of your talk!\", he shouts, before decking you square in the face. He scoffs at you, turns around, and goes back into his limousine.</br>The limousine ascends into Heaven.</br></br>You decide you didn't want a knuckle sandwich.";
-			changeValues1(' What else? ');
+			changeValues1(' "What else?" ');
 			pic = "pics/15.png";
 		}
 	}
@@ -214,9 +214,9 @@ function changeScene(choice)
 			scene = 21;
 			show2(); show3();
 			message = "You suppose that you have a couple of choices when it comes to getting a taste of Sir Goodtaste. You try and weigh the choices.";
-			changeValues1(' I could go trick-or-treating ');
-			changeValues2(' I could hunt for one in the wild ');
-			changeValues3(' I could buy one in a store ');
+			changeValues1(' "I could go trick-or-treating." ');
+			changeValues2(' "I could hunt for one in the wild." ');
+			changeValues3(' "I could buy one in a store." ');
 			pic = "pics/2.png";
 		}
 	}
@@ -296,11 +296,11 @@ function changeScene(choice)
 			message = "Trick-or-treating. An ancient, sacred tradition where children wander the street alone, dressed in disguises, and beg the sky for candy. You remember when you would go trick-or-treating.</br>You used to have a neighbor, Mr. Simon. Every Halloween, you would break down his door and holler the Halloween Holler.</br></br><h3><i>\"HALLOWEEN, HALLOWEEN! I am in need of that sugar, so please throw some at me so that I can ingest it.\"</h3></i></br></br>Some years he would happily give it to you, and some years he would just cry.</br></br>If you decide to go through with this, it will eat up your night. Is it really the best way to get a candy bar?";
 			if(isDebug())
 			{
-				changeValues1(' Yep! ');
+				changeValues1(' "Yep!" ');
 				show2();
-				changeValues2(' Maybe something else... ');
+				changeValues2(' "Maybe something else..." ');
 			}
-			else changeValues1(' Maybe something else... ');
+			else changeValues1(' "Maybe something else..." ');
 			pic = "pics/2.png";
 		}
 		else if(choice==2)
@@ -310,11 +310,11 @@ function changeScene(choice)
 			message = "Ahh yes! The hunt!</br>You think back to when your grandfather used to tell you stories of the hunt. You can hear his crooked old voice now.</br></br><h3><i>\"Sonny, back in the day, I used to go on the hunt. Once, I was in the mall on an escalator, and I saw a huge elephant at the bottom! What a prize she was.</br>I readied my harpoon, put my nose between the crosshairs, and shot right at the ceiling. A chandelier fell from directly above her, and I took her home. What a great meal.\"</h3></i></br></br>Society has come a long way since your grandfather used to poach elephants to eat whole. Are you sure you want to go on the hunt for your candy bar?";
 			if(isDebug())
 			{
-				changeValues1(' Yep! ');
+				changeValues1(' "Yep!" ');
 				show2();
-				changeValues2(' Maybe I\'ll do something else... ');
+				changeValues2(' "Maybe I\'ll do something else..." ');
 			}
-			else changeValues1(' Maybe I\'ll do something else... ');
+			else changeValues1(' "Maybe I\'ll do something else..." ');
 			pic = "pics/2.png";
 		}
 		else if(choice==3)
@@ -322,8 +322,8 @@ function changeScene(choice)
 			scene = 28;
 			show2(); hide3();
 			message = "Consumerism, one of the most cherished traditions in life. You enjoy going to stores, which are large prisons where products live. In fact, you just went to a store the other day.</br>You wanted to buy more peas to arrange into a pyramid, and you became immediately perplexed by the vast array of things the store sold. Diapers, playing cards, lightbulbs, you name it. They had nearly everything, except the little part of your soul that you lost wandering the aisles for days.</br>Actually they did have that, but you forgot your coupon at home.</br></br>Are you sure that you want to go to the proud institution that is a store?";
-			changeValues1(' Yep! ');
-			changeValues2(' Maybe something else... ');
+			changeValues1(' "Yep!" ');
+			changeValues2(' "Maybe something else..." ');
 			pic = "pics/2.png";
 		}
 	}
@@ -410,7 +410,7 @@ function changeScene(choice)
 			hide(2);
 			message = "You stare at Richard dreamily, and behind his face, you can tell he's staring back at you.</br>You've never felt this way, not even that time when you fell in love with the moon. The moon didn't love you back, but you feel Richard would at least give it a try.</br></br>You ask Richard on a date, and he says yes.";
 			pic = "pics/31.png";
-			changeValues(1, ' Grow old together ');
+			changeValues(1, ' Grow old together. ');
 		}
 	}
 	else if(scene==32||(scene==33&&choice==2))
@@ -425,10 +425,10 @@ function changeScene(choice)
 		}
 		else if(choice==2)
 		{
-			show1();hide2();hide3();hide4();
+			hide2();hide3();hide4();
 			scene = 37;
 			message = "You start strolling down the aisles, still as amazed as before. They really <i>do</i> have it all. You twirl around in the middle of the aisle, overcome with the joy of the products you see before you.</br>You take a Sodium Pop&reg off the shelf and throw it in the air. You try and catch it, but miss, and it falls through the floor. You remember you're a ghost and now you wonder how you even picked it up in the first place.";
-			changeValues(1, ' Continue down the aisle. ');
+			changeValues1(' Continue down the aisle. ');
 			pic = "pics/37.png";
 		}
 	}
@@ -441,7 +441,7 @@ function changeScene(choice)
 			message = "Aisle 7. On the ceiling of this aisle is a small plaque announcing what Products&reg are sold in this aisle. It says one item. <i>\"Sir Goodtaste\"</i>.</br></br>It's lying there on the ground in the middle of the aisle. You approach slowly, baffled that it could all be this easy. You look behind you, and you've been completely unfollowed. You pick it up.</br></br><b>You have acquired one (1) candy bar.</b>";
 			if(scene==39) message = "You arrive at another aisle.</br>" + message;
 			scene = 40;
-			changeValues(1, ' Go up to the counter ');
+			changeValues(1, ' Go up to the counter. ');
 		}
 		else if(choice==3)
 		{
@@ -449,7 +449,7 @@ function changeScene(choice)
 			hide2(); hide3();
 			pic = "pics/42.png";
 			message = "\"Hey there,\" says Richard, as he shoves dollar bills into a small box. \"Was there not a single candy bar in aisle 7?\" You feel embarrassed for not even looking.</br>\"I won't be able to check you out until you get the candy bar to buy,\" he reminds you. You forgot about that part. Shopping is hard.";
-			changeValues1(' Go to aisle 7 ');
+			changeValues1(' Go to aisle 7. ');
 		}
 	}
 	else if(scene==34)
@@ -471,6 +471,7 @@ function changeScene(choice)
 			scene = 38;
 			pic = "pics/38.png";
 			message = "Oh man! They have Tissues&reg, which are one of your favorite Products&reg. You sometimes pray that you get a Runny Nose&reg so that you can rub the piece of paper on your Face&reg. You feel slightly guilty for this, but sometimes you've lied about having to sneeze so that you could use a Tissue&reg.</br></br>You try to pick up a box but it seems you can't pick this up either.";
+			changeValues(1, ' Continue down the aisle. ');
 		}
 	}
 	else if(scene==38)
