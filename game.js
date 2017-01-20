@@ -336,7 +336,7 @@ function changeScene(choice)
 			message = "Awesome!</br>You go up to the street, and there are already small children gathering by the hundreds on the sidewalk. Many of them are getting a headstart, looking for candy in the crooks of trees and underneath patches of grass. Some others are already hollering the Halloween Holler. You join in for a verse or two, for old time's sake. However, you remember you're on a mission.</br>How do you find a certain Mr. Sir Goodtaste?";
 			changeValues1(' Talk to some of the children ');
 			changeValues2(' Silently stand amongst the children ');
-			changeValues3(' Pass the children up and go knock on a door ');
+			changeValues3(' Pass the children up and go trick-or-treating alone ');
 			pic = "pics/demo.png";
 		}
 	}
@@ -542,7 +542,7 @@ function changeScene(choice)
 			changeValues1(' Restart Game ');
 		}
 	}
-	else if(scene==47)
+	else if(scene==47||(scene==54&&choice==2))
 	{
 		if(choice==1)
 		{
@@ -552,7 +552,7 @@ function changeScene(choice)
 			changeValues1(' "Wow, that\'s amazing." ');
 			pic = "pics/49.png";
 		}
-		else if(choice==2)
+		else if(choice==2&&scene==47)
 		{
 			scene = 50;
 			hide2(); hide3(); hide4();
@@ -560,15 +560,16 @@ function changeScene(choice)
 			changeValues1(' Protest with them ');
 			pic = "pics/demo.png";
 		}
-		else if(choice==3)
+		else if(choice==3||(scene==54))
 		{
 			scene = 51;
-			show2(); show3(); hide4();
-			message = "Do go up to the closest house and a strange man opens the door.</br></br>\"Ahh, a trick-or-treater, I see! That's a very nice ghost costume you have there!\"";
-			changeValues1(' "Thank you! I\'m actually dead." ');
-			changeValues2(' "Do you happen to have a single candy bar?" ');
-			changeValues3(' "Shut up, Mr. Strangerman. Give me a single candy bar." ');
-			pic = "pics/demo.png";
+			show2(); show3(); show4();
+			message = "You go up to the closest house, which is tall, spooky, and pink, much in the spirit of Halloween. The door on the front porch is also pink, and is noticably not covered in lamb's blood.</br></br>You've gone trick-or-treating before. You think. What exactly is the next step?";
+			changeValues1(' Knock on the door ');
+			changeValues2(' Check the mailbox for candy ');
+			changeValues3(' Holler the Halloween Holler ');
+			changeValues4(' Further inspect the stranger\'s house ');
+			pic = "pics/51.png";
 		}
 	}
 	else if(scene==49)
@@ -579,6 +580,19 @@ function changeScene(choice)
 			message = "\"Hello, stranger! My name is Muchlove Henrolds, and people say I am 10. This Halloween, I am dressing up as the famous Countess Darkella. The Countess was a woman from Bulgaria who liked living in the mountains and drinking milkshakes. One day, she decided that after drinking nothing but milkshakes for 5 years, that she wanted something different and exotic. She tried all sorts of liquids - vinegar, gasoline, regular milk - but she could never find anything to quench her thirst. Then one night while she was alone, she pricked her finger and realized what she wanted: blood. So she went around her town asking people for any spare bags of blood, and then those people realized they wanted bags of blood, and then <i>those</i> people wanted bags of blood, and so on. And that's why Countess Darkella is known for singlehandedly starting the Bulgarian Blood Economy.</br>I wore this costume in honor of my grandmother, who was a bag of blood.\"";
 			changeValues1(' "What a fitting tribute." ');
 			pic = "pics/52.png";
+		}
+	}
+	else if(scene==51)
+	{
+		if(choice)
+		{
+			scene = 55;
+			show2(); show3(); hide4();
+			message = "You knock on the door and a strange man opens the door.</br>\"Ahh, a trick-or-treater, I see! That's a very nice ghost costume you have there!\"";
+			changeValues1(' "Thank you! I\'m actually dead." ');
+			changeValues2(' "Do you happen to have a single candy bar?" ');
+			changeValues3(' "Shut up, Mr. Strangerman. Give me a single candy bar." ');
+			pic = "pics/demo.png";
 		}
 	}
 	else if(scene==52)
@@ -596,8 +610,24 @@ function changeScene(choice)
 		if(choice)
 		{
 			scene = 54;
-			message = "";
-			changeValues1(' "Choice" ');
+			message = "\"I decided to not dress up at all this year,\" says a nearby child without a name or age.</br></br>\"Would you want to come trick-or-treating with us children, the ones versed in the Halloween arts, or would you rather survive by your own wits and submit yourself not the likes of us?\"";
+			changeValues1(' Trick-or-treat with the children ');
+			changeValues2(' Go trick-or-treating alone ');
+			show2();
+			pic = "pics/demo.png";
+		}
+	}
+	else if(scene==55)
+	{
+		if(choice==1)
+		{
+			scene = 56;
+			show2(); show3(); show4();
+			message = "\"That's impressive,\" he says. \"I know a lot of kids put a lot of effort into making their costumes, but that's a whole new level of Halloween spirit. Anyone that committed to the sacred traditions of Halloween and trick-or-treating surely deserves an amazing reward from the strangers that throw candy at children.</br>Do you have any ideas for what I should give you in return for you commitment to this Hallowed Ween?\"";
+			changeValues1(' "How about a single candy bar?" ');
+			changeValues2(' "Screws. Definitely the sharp & threaded metal objects." ');
+			changeValues3(' "Umm, anything? This is hard. Can you choose for me?" ');
+			changeValues4(' "I actually died in an incident unrelated to my costume." ');
 			pic = "pics/demo.png";
 		}
 	}
@@ -673,11 +703,13 @@ function changeScene(choice)
 // | 47 | **Trick-or-treating subbranch** | (49)(50)(51)         |     |
 // | 48 | **Candy hunting subbranch**     |                      |     |
 // | 49 | Fjeldenstern's monster          | (52)                 | x   |
-// | 50 | Stand quietly along the children| ()                   |     |
-// | 51 | Go knock on a door              | ()                   |     |
+// | 50 | Stand quietly along the children| (??)                 |     |
+// | 51 | Go to a nearby house            | (55)(??)(??)(??)     | x   |
 // | 52 | Countess Darkella               | (53)                 | x   |
 // | 53 | Jack, the Lantern               | (54)                 | x   |
-// | 54 | 
+// | 54 | Join the children?              | (??)(51)             |     |
+// | 55 | Knock on the door               | (56)(??)(??)         |     |
+// | 56 | Thank him for your compliment   | (??)(??)(??)(??)     |     |
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT

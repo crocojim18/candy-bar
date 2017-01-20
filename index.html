@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>Can You Obtain One Candy Bar?</title>
+		<link rel="shortcut icon" type="image/x-icon" href="pics/favicon.ico">
 		<script type="text/javascript" src="functions.js"></script>
 		<script type="text/javascript" src="game.js"></script>
 		<script type="text/javascript">
@@ -16,6 +17,11 @@
 				if(param==="?debug")
 				{
 					changeBackgroundColor("#cd4040");
+					document.getElementById("debugInputSection").style.display="block";
+					return true;
+				}
+				else if(param==="?debugnored")
+				{
 					document.getElementById("debugInputSection").style.display="block";
 					return true;
 				}
