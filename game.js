@@ -600,7 +600,7 @@ function changeScene(choice)
 		if(choice)
 		{
 			scene = 53;
-			message = "Greetings, my name is Bawlby Biznar, and when I woke up this morning, I was 6 years old, a year younger than yesterday. This year I've dressed up as the sacred Halloween icon Jack, the Lantern. Jack, the Lantern, is a pumpkin who has confused himself by reading a lot of philosophy. He thinks he is a man, but when he looks in the mirror, he only sees a pumpkin. He has carved a face into his flesh in order to look more like a man, but people still treat him like a lowly pumpkin. In order to draw attention to himself, he sets his internal organs on fire, but all people say is, <i>\"Why does this pumpkin have a face and smell like fire?\"</i></br>It depresses him a lot, but every Halloween I dress up like him so I too can feel pain.\"";
+			message = "\"Greetings, my name is Bawlby Biznar, and when I woke up this morning, I was 6 years old, a year younger than yesterday. This year I've dressed up as the sacred Halloween icon Jack, the Lantern. Jack, the Lantern, is a pumpkin who has confused himself by reading a lot of philosophy. He thinks he is a man, but when he looks in the mirror, he only sees a pumpkin. He has carved a face into his flesh in order to look more like a man, but people still treat him like a lowly pumpkin. In order to draw attention to himself, he sets his internal organs on fire, but all people say is, <i>\"Why does this pumpkin have a face and smell like fire?\"</i></br>It depresses him a lot, but every Halloween I dress up like him so I too can feel pain.\"";
 			changeValues1(' "That\'s very noble of you." ');
 			pic = "pics/53.png";
 		}
@@ -610,7 +610,7 @@ function changeScene(choice)
 		if(choice)
 		{
 			scene = 54;
-			message = "\"I decided to not dress up at all this year,\" says a nearby child without a name or age.</br></br>\"Would you want to come trick-or-treating with us children, the ones versed in the Halloween arts, or would you rather survive by your own wits and submit yourself not the likes of us?\"";
+			message = "\"I decided to not dress up at all this year,\" says a nearby child without a name or age.</br></br>\"Would you want to come trick-or-treating with us children, the ones versed in the Halloween arts, or would you rather survive by your own wits and not submit yourself to the likes of us?\"";
 			changeValues1(' Trick-or-treat with the children ');
 			changeValues2(' Go trick-or-treating alone ');
 			show2();
