@@ -179,7 +179,7 @@ function changeScene(choice)
 		else if(choice==3)
 		{
 			scene = 15;
-			message = "You think about it, and you haven't had a knuckle sandwich in quite a while!</br>As you sit there contemplating it, a limousine rolls up to your grave. The back door opens, and Vice President Joe Biden walks out.";
+			message = "You think about it, and you haven't had a knuckle sandwich in quite a while!</br>As you sit there contemplating it, a limousine rolls up to your grave. The back door opens, and former Vice President Joe Biden walks out.";
 			changeValues1(' Say, "Hello Mr. Biden! How is your day?" ');
 			changeValues2(' Say, "Howdy-doo, the Honorable Joseph Robinette Biden, Jr. What brings you to this part of town?" ');
 			pic = "pics/15.png";
@@ -542,9 +542,9 @@ function changeScene(choice)
 			changeValues1(' Restart Game ');
 		}
 	}
-	else if(scene==47||(scene==54&&choice==2))
+	else if(scene==47||(scene==57))
 	{
-		if(choice==1)
+		if(choice==1&&scene!=57)
 		{
 			scene = 49;
 			hide2(); hide3(); hide4();
@@ -560,7 +560,7 @@ function changeScene(choice)
 			changeValues1(' Protest with them ');
 			pic = "pics/demo.png";
 		}
-		else if(choice==3||(scene==54))
+		else if(choice==3||(scene==57))
 		{
 			scene = 51;
 			show2(); show3(); show4();
@@ -582,9 +582,21 @@ function changeScene(choice)
 			pic = "pics/52.png";
 		}
 	}
-	else if(scene==51)
+	else if(scene==50)
 	{
 		if(choice)
+		{
+			scene = 58;
+			show2();
+			message = "You make your way through the crowd and come in front of the de facto leader of the children.</br>\"Fellow childen, lend me your ears! For far too long, we have sat back and enjoyed our merry trouble-making only once a year! What we must fight for, what we must <i>demand</i>, is Halloween every day of the year! The mayor sits on his throne, laughing at himself, knowing that there is only one day a year in which the children get to act as we do! Does he think we are sated?\"</br><i><h3>\"Yes!\"</h3></i></br>\"Are we happy with what we have?!\"</br><i><h2>\"No!\"</h2></i></br>\"Will we fight?!?\"</br><i><h1>\"YES!\"</h1></i></br>Gee, things are getting a little intense. Do you really want to get involved with them?";
+			changeValues1(' Yes, it is all worth it, for one candy bar! ');
+			changeValues2(' Slowly scoot out and avoid making a scene as you leave ');
+			pic = "pics/demo.png";
+		}
+	}
+	else if(scene==51)
+	{
+		if(choice==1)
 		{
 			scene = 55;
 			show2(); show3(); hide4();
@@ -614,6 +626,17 @@ function changeScene(choice)
 			changeValues1(' Trick-or-treat with the children ');
 			changeValues2(' Go trick-or-treating alone ');
 			show2();
+			pic = "pics/demo.png";
+		}
+	}
+	else if(scene==54)
+	{
+		if(choice==2)
+		{
+			scene = 57;
+			hide2(); hide3(); hide4();
+			message = "You decide to not go trick-or-treating with these kids. They seem nice and all, but you worry that if you go with them, they'll cut into your game, and that is <i>not</i> okay.";
+			changeValues1(' Go to the nearest house ');
 			pic = "pics/demo.png";
 		}
 	}
@@ -703,13 +726,15 @@ function changeScene(choice)
 // | 47 | **Trick-or-treating subbranch** | (49)(50)(51)         |     |
 // | 48 | **Candy hunting subbranch**     |                      |     |
 // | 49 | Fjeldenstern's monster          | (52)                 | x   |
-// | 50 | Stand quietly along the children| (??)                 |     |
+// | 50 | Stand quietly along the children| (58)                 |     |
 // | 51 | Go to a nearby house            | (55)(??)(??)(??)     | x   |
 // | 52 | Countess Darkella               | (53)                 | x   |
 // | 53 | Jack, the Lantern               | (54)                 | x   |
-// | 54 | Join the children?              | (??)(51)             |     |
+// | 54 | Join the children?              | (??)(57)             |     |
 // | 55 | Knock on the door               | (56)(??)(??)         |     |
 // | 56 | Thank him for your compliment   | (??)(??)(??)(??)     |     |
+// | 57 | Do not go with the kids         | (51)                 |     |
+// | 58 | The protest intensifies         | (??)(??)             |     |
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT
