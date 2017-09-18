@@ -594,9 +594,9 @@ function changeScene(choice)
 			pic = "pics/demo.png";
 		}
 	}
-	else if(scene==51)
+	else if(scene==51||(scene==59&&choice==3)||(scene==60&&choice==1)||scene==61)
 	{
-		if(choice==1)
+		if(choice==1||(scene==59&&choice==3))
 		{
 			scene = 55;
 			show2(); show3(); hide4();
@@ -604,6 +604,17 @@ function changeScene(choice)
 			changeValues1(' "Thank you! I\'m actually dead." ');
 			changeValues2(' "Do you happen to have a single candy bar?" ');
 			changeValues3(' "Shut up, Mr. Strangerman. Give me a single candy bar." ');
+			pic = "pics/demo.png";
+		}
+		
+		else if(choice==2)
+		{
+			scene = 59;
+			show2(); show3(); hide4();
+			message = "You don't find any candy in the mailbox, but you do find some mail.";
+			changeValues1(' Read the mail ');
+			changeValues2(' Eat the mail ');
+			changeValues3(' Put the mail back and knock on the door ');
 			pic = "pics/demo.png";
 		}
 	}
@@ -651,6 +662,26 @@ function changeScene(choice)
 			changeValues2(' "Screws. Definitely the sharp & threaded metal objects." ');
 			changeValues3(' "Umm, anything? This is hard. Can you choose for me?" ');
 			changeValues4(' "I actually died in an incident unrelated to my costume." ');
+			pic = "pics/demo.png";
+		}
+	}
+	else if(scene==59&&choice!=3)
+	{
+		if(choice==1)
+		{
+			scene = 60;
+			show2(); hide3(); hide4();
+			message = "The mail reads as follows:</br><h3><i>Dear Mayor Kilbride-McCough,</br>I long for your embrace again. I keep thinking about that time we were together, and you showed me a magic trick, which was you putting your <b>[CENSORED]</b> inside my <b>[CENSORED]</b>. Baby, that was magic, and I can't wait to sneak behind your wife's back again and <b>[CENSORED]</b> your <b>[CENSORED]</b> with a <b>[CENSORED]</b>. Call me ;)</br>Love, Your Mistress</i></h3></br>Whoa, it seems like this guy is having an affair! Also, it seems like this guy's the mayor!";
+			changeValues1(' Put the mail back and knock on the door ');
+			changeValues2(' Take the mail and knock on the door ');
+			pic = "pics/demo.png";
+		}
+		else if(choice==2)
+		{
+			scene = 61;
+			hide2(); hide3(); hide4();
+			message = "You eat the mail. It's not as good as a candy bar, but it'll tide you over until then.";
+			changeValues1(' Knock on the door ');
 			pic = "pics/demo.png";
 		}
 	}
@@ -727,7 +758,7 @@ function changeScene(choice)
 // | 48 | **Candy hunting subbranch**     |                      |     |
 // | 49 | Fjeldenstern's monster          | (52)                 | x   |
 // | 50 | Stand quietly along the children| (58)                 |     |
-// | 51 | Go to a nearby house            | (55)(??)(??)(??)     | x   |
+// | 51 | Go to a nearby house            | (55)(59)(??)(??)     | x   |
 // | 52 | Countess Darkella               | (53)                 | x   |
 // | 53 | Jack, the Lantern               | (54)                 | x   |
 // | 54 | Join the children?              | (??)(57)             |     |
@@ -735,6 +766,9 @@ function changeScene(choice)
 // | 56 | Thank him for your compliment   | (??)(??)(??)(??)     |     |
 // | 57 | Do not go with the kids         | (51)                 |     |
 // | 58 | The protest intensifies         | (??)(??)             |     |
+// | 59 | Look in the mailbox             | (60)(61)(55)         |     |
+// | 60 | Read the mail                   | (55)(??)             |     |
+// | 61 | Eat the mail                    | (55)                 |     |
 // ---------------------------------------------------------------------
 
 //TO IMPLEMENT
